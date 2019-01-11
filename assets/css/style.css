@@ -26,10 +26,20 @@
 
 
 
-<!-- Jordan-->
+/* <!-- Jordan--> */
 
-<!-- Charity -->
+/* <!-- Charity --> */
 
+.title {
+  text-align: center;
+  font-size: 45px;
+  text-emphasis: bold;  
+}
+
+#footer {
+  border: 20%;
+  border-color: black;
+}
 
 
 
