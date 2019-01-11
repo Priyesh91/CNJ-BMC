@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Jordan
 // Declare a Book1 variable that will have the data calling the present book. As of this moment, the author data is only there in case we need Jason needs it for a future book if he needs to add it to the query if iDreamBooks doesn't access the right url with just a query of the title
 var Book1 = {
@@ -35,7 +35,9 @@ $(document).ready(function() {
 
 });
 // Jordan
-=======
+
+
+
 
 
 // <!-- Jason -->
@@ -60,10 +62,6 @@ $(document).ready(function() {
 
 
 
-
-
-
->>>>>>> d5a5930f23c3884b46b9117f091c79fe9983d237
 
 
 
