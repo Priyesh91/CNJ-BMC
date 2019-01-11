@@ -35,4 +35,6 @@ $(document).ready(function() {
   // call function snip() with meetup name
   snip(meetupName);
 
+  // Message for Jordan ========
+
 });
