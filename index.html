@@ -49,16 +49,48 @@
     <div class="title">Central Jersey Sci-Fi-Fantasy Book and Movie Club
     </div>
     <div id="navBk">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="#!">Suggest a Book</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Current Poll for Next Book</a>
-        </li>
+      <!--START-------------------------------- Suggest a read model start by priyesh-->
 
-      </ul>
+  <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg">Suggest A Read!</button>
+  <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="card mb-4 border-dark">
+          <h4 class="card-header text-light bg-dark text-center">
+            Suggest A Read!
+          </h4>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name-input" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label for="goodreads-username">Goodreads Username</label>
+                <input type="text" class="form-control" id="goodreads-username-input" placeholder="Enter meetup username">
+              </div>
+              <div class="form-group">
+                <label for="meetup-username">Meetup Username</label>
+                <input type="text" class="form-control" id="meetup-username-input" placeholder="Enter meetup username">
+              </div>
+              <div class="form-group">
+                <label for="booksuggestion">Book Suggestion</label>
+                <input type="text" class="form-control" id="booksuggestion-input" placeholder="Enter Book Suggestion">
+              </div>
+              <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<!--END-------------------------------- Suggest a read model start by priyesh-->
 
+<button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg">Current Poll For Next Book</button>
+      
+      
     </div><br>
     <div id="carousel">
       <div class="bd-example">
@@ -69,6 +101,13 @@
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
+<<<<<<< HEAD
+              <img class="d-block w-100" data-src="holder.js/900x300?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+              
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+=======
               <!-- <img class="d-block w-100" data-src="holder.js/900x300?auto=yes&bg=777&fg=555&text=First slide" alt="First slide"> -->
               <div id="present-book">
                   <!--This is the div that will contain one column for posting the GoogleBooks API call of the picture of the book and another column for posting the iDreamBooks API call of the review snippet(s), rating (expressed as a percent as mandated by iDreamBooks API's terms and conditions), and link(s) to the full version(s) of the review snippet(s)-->
@@ -79,6 +118,7 @@
                   </div>
                 </div>
               <div class="carousel-caption d-none d-md-block"></div>
+>>>>>>> 4d53a2124fc10cf6866d1fd3b126077ce035b0b0
             </div>
             <div class="carousel-item">
               <img class="d-block w-100" data-src="holder.js/900x300?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
@@ -107,6 +147,15 @@
       Large modal
     </button>
 
+<<<<<<< HEAD
+  
+    <div id="nextBkMtg"></div>
+    <div id="meetUp">
+      <a href=""></a>
+    </div>
+    <div id="goodReads">
+      <a href=""></a>
+=======
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -123,6 +172,7 @@
       <div id="goodReads">
         <a href="">Good Reads</a>
       </div>
+>>>>>>> 4d53a2124fc10cf6866d1fd3b126077ce035b0b0
     </div>
   </div>
 

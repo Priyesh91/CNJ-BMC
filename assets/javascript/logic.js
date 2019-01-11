@@ -124,8 +124,44 @@ $(document).ready(function() {
 // <!-- priyesh -->
 
 
+//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+$(document).ready(function () {
 
+  // Initialize Firebase
+  //priyesh firebase test project key, on final submit change to Jason's information as he will be using it periodically
+  var config = {
+    apiKey: "AIzaSyClgcbH2St3fS0SxAAivW6ts5PS8rTlMGY",
+    authDomain: "test-project1-718de.firebaseapp.com",
+    databaseURL: "https://test-project1-718de.firebaseio.com",
+    projectId: "test-project1-718de",
+    storageBucket: "test-project1-718de.appspot.com",
+    messagingSenderId: "83784774921"
+  };
+  firebase.initializeApp(config);
 
+  // save firebase database reference
+  var database = firebase.database();
+  // add event listener for form submit
+  $("#submit-btn").on("click", function (event) {
+    event.preventDefault();
+
+    var userData = {
+      name: $("#name-input").val().trim(),
+      goodreadsUsername: $("#goodreads-username-input").val().trim(),
+      meetupUsername: $("#meetup-username-input").val().trim(),
+      bookSuggestion: $("#booksuggestion-input").val().trim()
+    };
+
+    database.ref().push(userData);
+
+    //clear out values after submit
+    $("#name-input").val("");
+    $("#goodreads-username-input").val("");
+    $("#meetup-username-input").val("");
+    $("#booksuggestion-input").val("");
+  });
+});
+//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
 
 
 
