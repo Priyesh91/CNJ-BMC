@@ -33,7 +33,6 @@ $(document).ready(function() {
 
   displayBook1Review(Book1);
 
-});
 // Jordan
 
 
@@ -193,3 +192,5 @@ $(document).ready(function () {
 
 
 // <!-- priyesh -->
+
+});
