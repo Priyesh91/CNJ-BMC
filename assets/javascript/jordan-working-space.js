@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // Jordan
   // Declare a Book1 variable that will have the data calling the present book. As of this moment, the author data is only there in case we need Jason needs it for a future book if he needs to add it to the query if iDreamBooks doesn't access the right url with just a query of the title
   var Book1 = {
@@ -28,8 +27,9 @@ $(document).ready(function() {
         $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
         var reviewLink = response.book.critic_reviews[0].review_link;
         $("#iDB-preview").append($("<br><a href='" + reviewLink + "'>Click here for the full review</a>"));
-        //Now I just need to figure out how to make the variable reviewLink get printed to the page as a link instead of plain text
       })
+      //I am experimenting with having the carousel pause after loading here-----------------------------------------
+      $('.carousel').carousel('pause');
     }
     // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
     // displayBook1Review(Book1);
