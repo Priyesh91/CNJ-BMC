@@ -30,6 +30,8 @@ console.log(Book1);
       $("#iDB-preview").append($("<br><a href='" + reviewLink + "'>Click here for the full review</a>"));
       //Now I just need to figure out how to make the variable reviewLink get printed to the page as a link instead of plain text
     })
+    //this will pause the carousel when after it loads and displays the book1
+    $('.carousel').carousel('pause');
   }
   // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
   // displayBook1Review(Book1);
