@@ -11,6 +11,8 @@ $(document).ready(function() {
     var meetupName = "";
     var bookName = "";
     var authorName = "";
+    var bookNamePluses = "";
+    var authorNamePluses = "";
     // var toggleA = false;
 
     // function to pull title name out of meetings variable
@@ -24,6 +26,16 @@ $(document).ready(function() {
     console.log(bookName);
     authorName = input.slice(titleEnd+5, input.length);
     console.log(authorName);
+    bookNamePluses = plusFunction(bookName);
+    authorNamePluses = plusFunction(authorName);
+    console.log("bookNamePluses variable: "+bookNamePluses+". AuthorNamePluses variable: "+authorNamePluses+".");
+    };
+
+    // function to convert spaces to pluses within the string parameter
+    function plusFunction(withSpaces){
+      var withPluses = withSpaces.replace(/ /g, "+");
+      console.log("Spaces switched for pluses: "+withPluses);
+      return withPluses;
     };
 
     // variable for mettup secure key for next meeting 
