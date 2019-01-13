@@ -204,10 +204,22 @@ $(document).ready(function () {
     $("#booksuggestion-input").val("");
   });
 });
-//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+//-------END---Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+});
+// --------------------Start---Logo Animation--------------------
+$(".grimg, .muimg").rotate({
+  bind:
+  {
+    mouseover : function() {
+    $(this).rotate({animateTo:360})
+  },
+  mouseout : function() {
+    $(this).rotate({animateTo:0})
+    }
+  }
+});
 
-
-
+// --------------------End---Logo Animation--------------------
 
 
 
@@ -237,4 +249,3 @@ $(document).ready(function () {
 
 // <!-- priyesh -->
 
-});
