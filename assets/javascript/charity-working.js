@@ -235,6 +235,6 @@ $("#submit-btn").on("click", function (event) {
 
 
 
-})
+
 
 // <!-- priyesh -->
