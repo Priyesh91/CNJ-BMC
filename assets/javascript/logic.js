@@ -42,7 +42,7 @@ console.log(Book1);
       $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
     })
     //this will pause the carousel when after it loads and displays the book1
-    $('.carousel').carousel('pause');
+    // $('.carousel').carousel('pause');
   }
   // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
   // displayBook1Review(Book1);
