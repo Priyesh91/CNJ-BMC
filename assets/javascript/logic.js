@@ -23,7 +23,7 @@ console.log(Book1);
     }).then(function (response) {
       console.log("The response to the ajax call is below");
       console.log(response);
-      $("#iDB-preview").prepend(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview").html(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
       $("#iDB-preview").append("Critic Review:");
       $("#iDB-preview").append("<br>");
       $("#iDB-preview").append('"');
