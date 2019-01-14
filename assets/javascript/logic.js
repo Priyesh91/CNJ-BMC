@@ -50,7 +50,9 @@ console.log(Book1);
   var authorName = "";
   var bookNamePluses = "";
   var authorNamePluses = "";
-  // var toggleA = false;
+  // for use in google preview page
+  var googleBooksISBN = "";
+
 
   // function to pull title name out of meetings variable
   function snipFunction(input){
