@@ -101,12 +101,12 @@ $(document).ready(function () {
     console.log("interior Ajax meetupName value " + meetupName);
     snipFunction(meetupName);
     time = meetings.results[0].time;
+
     console.log("This is the time in unix " + time);
-    var dt = new Date(time);
-    var timeOffSet = dt.getTimezoneOffset();
-    var time = timeOffSet.
+    time = toString(time);
+    console.log("This is converted time " + time);
     
-    console.log("Converted time is " + time)
+   
     waitForTime(time);
   });
 
@@ -176,17 +176,17 @@ $(".grimg, .muimg").rotate({
 // <!-- Charity -->
 function waitForTime(time) {
   console.log("waitForTime received ", time);
- 
 
-  
+
+
   // timeConverted = time.getDate();
   // console.log("Date of meeting is " + timeConverted);
 
-  
+
   // var tFrequencyConverted = moment(tFrequency, "MMDDYYYY");
   var firstTime = time;
 
-   //var firstTimeConverted = moment(firstTime, "DD:HH:mm");
+  //var firstTimeConverted = moment(firstTime, "DD:HH:mm");
   //console.log("firstTimeConverted is " + firstTimeConverted);
 
   var currentTime = moment();
@@ -194,10 +194,10 @@ function waitForTime(time) {
   // Set a variable for how frequently the book meeting happens 
   var tDiff = moment(firstTime).fromNow();
   console.log("The difference in days is " + tDiff)
-   // convert time to EST from GMT
-   tDiff = tDiff - 5;
-   console.log("This is time in EST " + tDiff);
-  
+  // convert time to EST from GMT
+  tDiff = tDiff - 5;
+  console.log("This is time in EST " + tDiff);
+
   // Set variable for getting the time to the next book meeting
   var nextbookMtg = moment().add(tMinutesTillbookMtg, "minutes");
   nextbookMtg = (moment(nextbookMtg).format("dd:hh:mm A"));
