@@ -1,3 +1,12 @@
+// temporary Book1 object to fill in for mettup response not present in this js file
+var Book1 = {
+  
+  title: "Station+Eleven",
+  author: "by+Emily+St.+John+Mandel"
+}
+
+
+
 // Jason's temporary javascript workspace for testing before altering the logic.js file
 
 // $(document).ready(function() {
@@ -17,7 +26,9 @@
 
 // variables
 var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
-var googleBooksURL = "";
+var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q="+Book1.title+Book1.author+"&key="+googleBooksAPI;
+  var googleISBN = "";
+  var googleVolume = {};
 console.log();googleBooksURL;
 
 $.ajax({
