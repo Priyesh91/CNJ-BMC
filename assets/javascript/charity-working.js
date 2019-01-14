@@ -220,8 +220,7 @@ $(document).ready(function() {
     console.log("This is the time in unix " + time);
     time = moment(time).format('MMMM Do YYYY, h:mm:ss a');
     console.log("This is converted time " + time);
-    
-   
+       
     waitForTime(time);
   });
 
@@ -292,20 +291,13 @@ function waitForTime(time) {
   var firstTime = time;
 
   var currentTime = moment();
-
-  // Set a variable for how frequently the book meeting happens 
+alert ("This is the current time " + currentTime);
+  // Set a variable for how long until book meeting happens 
   var tDiff = moment(firstTime).fromNow();
   console.log("The difference in days is " + tDiff)
-  // convert time to EST from GMT
-  tDiff = tDiff - 5;
-  console.log("This is time in EST " + tDiff);
-
-  // Set variable for getting the time to the next book meeting
-  var nextbookMtg = moment().add(tMinutesTillbookMtg, "minutes");
-  nextbookMtg = (moment(nextbookMtg).format("dd:hh:mm A"));
-
-  // Populate the current bookMtg data in html, create table to do it
-  $("# > tbody").append("<td>" + "The Next meeting is in : " + tMinutesTillbookMtg + " min" + "</td>" + "<td>" + "</td>" + "</tr>");
+  
+  // Populate the current bookMtg data in html, just pop it in
+  $("#timeTilMtg").append("The next meeting will be in " + tDiff);
 }
 
 
