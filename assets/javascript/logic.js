@@ -32,6 +32,14 @@ console.log(Book1);
       $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
       var reviewLink = response.book.critic_reviews[0].review_link;
       $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(response.book.critic_reviews[1].snippet);
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[1].source}`);
+      var reviewLink = response.book.critic_reviews[1].review_link;
+      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
     })
     //this will pause the carousel when after it loads and displays the book1
     $('.carousel').carousel('pause');
