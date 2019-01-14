@@ -87,32 +87,21 @@ $(document).ready(function() {
   
     // magic Alex stuff (runs request though server to get past cors stuff
     var corsURL = `https://cors-anywhere.herokuapp.com/${MeetupAPISignedNextMeetupKey}`;
-  
+   
   $.ajax({
     url: corsURL,
     method: "GET"
     }).then(function(response) {
     console.log(response);
     meetings = response;
-    console.log(meetings.results[0].name);
+    console.log(meetings.results[0].time);
     meetupName = meetings.results[0].name;
     console.log("interior Ajax meetupName value "+meetupName);
     snipFunction(meetupName);
     }); 
   
   
-  // <!-- Jason end -->
   
-  // <!-- Jordan-->
- 
-  // <!-- Jordan-->
-  
-  // <!-- Charity -->
-  
-    // <!-- Charity -->
-  
-  
-  // <!-- priyesh -->
   
   
   //-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
@@ -176,7 +165,10 @@ $(document).ready(function() {
   // <!-- Jordan-->
 
   // <!-- Charity -->
- 
+  var newTime = meetings.results[0].time;
+  var newTimeConverted = newTime.getDate();
+  console.log("Date of meeting is " + newTimeConverted);
+
 var tFrequency = "01302018";
 var tFrequencyConverted = moment(tFrequency, "MMDDYYYY");
   var firstTime = time;
@@ -197,7 +189,7 @@ var tRemainder = parseInt(diffTime) % parseInt(tFrequency);
   nextbookMtg = (moment(nextbookMtg).format("hh:mm A"));
 
   // Populate the current bookMtg data in html, create table to do it
-  $("#bookMtg-Table > tbody").append("<tr data-key=" + childSnapshot.key + "><td>" + bookMtgName + "</td><td>" + nextbookMtg + "</td><td>" + "Arrives in : " + tMinutesTillbookMtg + " min" + "</td>" + "<td>" + "<button  data-key=" + childSnapshot.key + "  class='btn btn-secondary edit'>" + "<i class='fas fa-file-signature'></i>" + "</button>" +
+  $("# > tbody").append("<t=r data-key=" + childSnapshot.key + "><td>" + bookMtgName + "</td><td>" + nextbookMtg + "</td><td>" + "The Next meeting is in : " + tMinutesTillbookMtg + " min" + "</td>" + "<td>" + "<button  data-key=" + childSnapshot.key + "  class='btn btn-secondary edit'>" + "<i class='fas fa-file-signature'></i>" + "</button>" +
     "<button  data-key=" + childSnapshot.key + " class='btn btn-secondary delete'>" + "<i class='fas fa-undo'>" + "</i>" + "</button>" + "</td>" + "</tr>"
   );
 
