@@ -27,7 +27,7 @@ console.log(Book1);
       $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
       $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
       var reviewLink = response.book.critic_reviews[0].review_link;
-      $("#iDB-preview").append($("<br><a href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
       //Now I just need to figure out how to make the variable reviewLink get printed to the page as a link instead of plain text
     })
     //this will pause the carousel when after it loads and displays the book1
