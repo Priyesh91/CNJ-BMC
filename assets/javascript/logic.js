@@ -76,6 +76,7 @@ console.log(Book1);
   Book1.author = authorNamePluses;
   console.log("Book1 after snip "+Book1.title+" "+Book1.author);
   displayBook1Review(Book1);
+  googleBooks();
   };
 
   // function to convert spaces to pluses within the string parameter
@@ -104,6 +105,33 @@ $.ajax({
   }); 
 
 
+  // variables
+    var googleISBN = "";
+    var googleVolume = {};
+    var googleImageURL = "";
+    var googlePagination = "";
+
+  function googleBooks(){
+  var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+  var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q="+Book1.title+Book1.author+"&key="+googleBooksAPI;
+  
+  $.ajax({
+    url: googleBooksURL,
+    method: "GET"
+    }).then(function(response) {
+      console.log("Google Books Response");
+    console.log(response);
+    googleVolume = response;
+    googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+    console.log(googleISBN);
+    googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
+    console.log(googleImageURL);
+    googlePagination = response.items[0].volumeInfo.pageCount;
+    console.log(googlePagination);
+
+    
+    }); 
+  };
 // <!-- Jason end -->
 
 // <!-- Jordan-->
