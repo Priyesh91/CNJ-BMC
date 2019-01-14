@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   // Jordan
   // Declare a Book1 variable that will have the data calling the present book. As of this moment, the author data is only there in case we need Jason needs it for a future book if he needs to add it to the query if iDreamBooks doesn't access the right url with just a query of the title
   var Book1 = {
@@ -23,12 +24,17 @@ $(document).ready(function() {
         console.log("The response to the ajax call is below");
         console.log(response);
         $("#iDB-preview").prepend(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+        $("#iDB-preview").append("Critic Review:");
+        $("#iDB-preview").append("<br>");
+        $("#iDB-preview").append('"');
         $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
+        $("#iDB-preview").append('"');
         $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
         var reviewLink = response.book.critic_reviews[0].review_link;
         $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+        //Now I just need to figure out how to make the variable reviewLink get printed to the page as a link instead of plain text
       })
-      //I am experimenting with having the carousel pause after loading here-----------------------------------------
+      //this will pause the carousel when after it loads and displays the book1
       $('.carousel').carousel('pause');
     }
     // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
@@ -202,10 +208,22 @@ $(document).ready(function() {
       $("#booksuggestion-input").val("");
     });
   });
-  //-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+  //-------END---Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+  });
+  // --------------------Start---Logo Animation--------------------
+  $(".grimg, .muimg").rotate({
+    bind:
+    {
+      mouseover : function() {
+      $(this).rotate({animateTo:360})
+    },
+    mouseout : function() {
+      $(this).rotate({animateTo:0})
+      }
+    }
+  });
   
-  
-  
+  // --------------------End---Logo Animation--------------------
   
   
   
@@ -235,4 +253,4 @@ $(document).ready(function() {
   
   // <!-- priyesh -->
   
-  });
+  
