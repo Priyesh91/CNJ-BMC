@@ -16,14 +16,26 @@
   google.books.setOnLoadCallback(initialize);
 
 // variables
-var googleBooks = "";
+var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+var googleBooksURL = "";
+console.log();googleBooksURL;
+
+$.ajax({
+  url: googleBooksURL,
+  method: "GET"
+  }).then(function(response) {
+  console.log(response);
+  googleVolume = response;
+  
+  }); 
+
 
 // Modal toggle
-$("#googleModalToggler").click(function(){
+// $("#googleModalToggler").click(function(){
 
-    $('#googlePreviewModal').modal('toggle');
+//     $('#googlePreviewModal').modal('toggle');
 
-});
+// });
 
 // Bulma modal toggle
 
