@@ -1,5 +1,7 @@
+body {
+  background-image: url(./../images/testimage2.jpg);
+}
 /* Jordan */
-
 #iDB-preview {
   background-color: lightgreen;
   color: darkmagenta;
@@ -16,7 +18,7 @@
 .title {
   text-align: center;
   font-size: 45px;
-  text-emphasis: bold;  
+  text-emphasis: bold;
 }
 
 #footer {
@@ -78,13 +80,15 @@
 
 
 /* priyesh */
+
 .outline {
   border-style: solid;
   border-width: 6px;
- 
+
 }
 
-.grimg{
+ /* Logos at footer */
+.grimg {
   height: 200px;
 }
 
@@ -93,25 +97,89 @@
 }
 
 
+/* -------setting carousel to set height */
+.carouseltwo {
+  background-image: url("./../images/testimage.jpg");
+  height: 60vh;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1%;
+}
+
+.innercarousel {
+  height: 58vh;
+  margin: auto;
+  padding: 1%;
+}
+
+.innercarousel1 {
+  height: 55vh;
+  margin: auto;
+  padding: 2%;
+}
+
+.innercarousel2 {
+  height: 55vh;
+  margin: auto;
+  /* padding: 0, 0, 0, 10%; */
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.descriptiondiv {
+  height: 46vh;
+}
+
+.imagediv {
+  height: 30vh;
+  margin-top: 8%;
+  margin-right: 0%;
+}
 
 
+.rightcbtn {
+  margin-left: 80px;
+  min-height: 40px;
+  min-width: 40px;
+}
+
+.leftcbtn {
+  margin-right: 80px;
+  min-height: 40px;
+  min-width: 40px;
+}
 
 
+@media only screen and (max-width: 640px) {
 
+#iDB-preview{
+  min-width: 100%;
+}
+}
 
+/* glowing title */
+/* ---------------Start Neon Glow Priyesh----------------------------------- */
+.glow {
+  font-family: cursive;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ba893, 0 0 40px #0ba893, 0 0 50px #0ba893, 0 0 60px #0ba893, 0 0 70px #0ba893;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px  #37e7d0, 0 0 40px  #37e7d0, 0 0 50px  #37e7d0, 0 0 60px  #37e7d0, 0 0 70px  #37e7d0, 0 0 80px  #37e7d0;
+  }
+}
+/* ---------------End Neon Glow from Priyesh------------------------------------ */

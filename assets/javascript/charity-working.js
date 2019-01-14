@@ -103,7 +103,7 @@ $(document).ready(function () {
     time = meetings.results[0].time;
 
     console.log("This is the time in unix " + time);
-    time = toString(time);
+    time = moment(time).format('MMMM Do YYYY, h:mm:ss a');
     console.log("This is converted time " + time);
     
    
@@ -177,17 +177,7 @@ $(".grimg, .muimg").rotate({
 function waitForTime(time) {
   console.log("waitForTime received ", time);
 
-
-
-  // timeConverted = time.getDate();
-  // console.log("Date of meeting is " + timeConverted);
-
-
-  // var tFrequencyConverted = moment(tFrequency, "MMDDYYYY");
   var firstTime = time;
-
-  //var firstTimeConverted = moment(firstTime, "DD:HH:mm");
-  //console.log("firstTimeConverted is " + firstTimeConverted);
 
   var currentTime = moment();
 
