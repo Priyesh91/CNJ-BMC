@@ -104,74 +104,6 @@ $(document).ready(function() {
     }); 
   
   
-  // <!-- Jason end -->
-  
-  // <!-- Jordan-->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // <!-- Jordan-->
-  
-  // <!-- Charity -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // <!-- Charity -->
-  
-  
-  // <!-- priyesh -->
-  
   
   //-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
   $(document).ready(function () {
@@ -224,10 +156,6 @@ $(document).ready(function() {
       }
     }
   });
-  
-  // --------------------End---Logo Animation--------------------
-  
-
 
   // <!-- Jason -->
   // set up variable to store response
@@ -358,9 +286,6 @@ $(".grimg, .muimg").rotate({
 
 // --------------------End---Logo Animation--------------------
 
-
-
-// <!-- Charity -->
 function waitForTime(time) {
   console.log("waitForTime received ", time);
 
@@ -382,26 +307,6 @@ function waitForTime(time) {
   // Populate the current bookMtg data in html, create table to do it
   $("# > tbody").append("<td>" + "The Next meeting is in : " + tMinutesTillbookMtg + " min" + "</td>" + "<td>" + "</td>" + "</tr>");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -448,4 +353,5 @@ $(document).ready(function () {
     $("#booksuggestion-input").val("");
   });
 });
-//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+
+// -------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE
