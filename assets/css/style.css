@@ -1,6 +1,7 @@
 body {
   background-image: url(./../images/testimage2.jpg);
 }
+
 /* Jordan */
 #iDB-preview {
   background-color: lightgreen;
@@ -9,6 +10,7 @@ body {
   padding: 10px;
   max-width: 68%;
 }
+
 #iDB-preview-upcoming {
   background-color: lightgreen;
   color: darkmagenta;
@@ -18,8 +20,7 @@ body {
 }
 
 
- Jordan */
-
+Jordan */
 /* <!-- Charity --> */
 
 .title {
@@ -33,55 +34,9 @@ body {
   border-color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Charity   */
 
 /* Jason */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* jason */
 
@@ -91,10 +46,9 @@ body {
 .outline {
   border-style: solid;
   border-width: 6px;
-
 }
 
- /* Logos at footer */
+/* Logos at footer */
 .grimg {
   height: 200px;
 }
@@ -159,15 +113,6 @@ body {
   min-height: 40px;
   min-width: 40px;
 }
-
-
-@media only screen and (max-width: 640px) {
-
-#iDB-preview{
-  min-width: 100%;
-}
-}
-
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .glow {
@@ -184,9 +129,17 @@ body {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ba893, 0 0 40px #0ba893, 0 0 50px #0ba893, 0 0 60px #0ba893, 0 0 70px #0ba893;
   }
-  
+
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px  #37e7d0, 0 0 40px  #37e7d0, 0 0 50px  #37e7d0, 0 0 60px  #37e7d0, 0 0 70px  #37e7d0, 0 0 80px  #37e7d0;
+    text-shadow: 0 0 20px #fff, 0 0 30px #37e7d0, 0 0 40px #37e7d0, 0 0 50px #37e7d0, 0 0 60px #37e7d0, 0 0 70px #37e7d0, 0 0 80px #37e7d0;
   }
 }
+
 /* ---------------End Neon Glow from Priyesh------------------------------------ */
+@media only screen and (max-width: 640px) {
+
+  #iDB-preview {
+    min-width: 100%;
+  }
+}
+
