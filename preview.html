@@ -129,15 +129,37 @@ js"></script>
   <script>
       google.books.load();
 
+             // read isbn from url on pageload
+  
+
   function initialize() {
-    var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-    viewer.load('ISBN:1481440896');
-    viewer.resize();
-  }
-
+    let params = new URLSearchParams(document.location.search.substring(1));
+  let urlISBN;
+      if (params.has("isbn")) {
+        urlISBN = params.get("isbn");
+        console.log("URL ISBN");
+        console.log(urlISBN);
+      };
+      
+    if (params.has("isbn")){
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        viewer.load('ISBN:'+urlISBN);
+        // viewer.load('ISBN:9781481440899');
+        viewer.resize();
+        // viewer.load('ISBN:9781743532324');
+        // var viewerISBN = `ISBN:${urlISBN}`;
+        // console.log("Viewer ISBN", viewerISBN);
+        
+        // viewer.load('ISBN:'+googleISBN2);
+    }
+    else {
+      $("#viewerCanvas").append("<h1 style='color:white'>Sorry, no Preview available<br /> :-(</h1>");
+    };
+      
+  };
   google.books.setOnLoadCallback(initialize);
-
   </script>
+
 
 </body>
 
