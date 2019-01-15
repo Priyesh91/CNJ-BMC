@@ -32,6 +32,10 @@ body {
   border: 20%;
   border-color: black;
 }
+#pagesPerDay {
+  color: aliceblue;
+  text-emphasis: bold;
+}
 
 
 

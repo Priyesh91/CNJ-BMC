@@ -299,7 +299,7 @@ $(document).ready(function () {
 
     console.log('first time and time: ' + time)
     // Populate the current bookMtg data in html, just pop it in
-    $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
+    $("#timeTilMtg").append("The next CNJ Scifi-Fantasy Book and Movie Club meeting will be " + tDiff);
   }
   // <!-- Charity -->
 

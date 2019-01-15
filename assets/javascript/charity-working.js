@@ -9,10 +9,16 @@ $(document).ready(function () {
   }
   console.log(Book1);
 
+  var Book2 = {
+    title: "",
+    author: ""
+  }
+  console.log(Book2);
+
 
   function displayBook1Review() {
     //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
-    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book1.title + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book1.title + "+" + Book1.author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
     console.log(queryURL);
     console.log(Book1.title);
     console.log(Book1.author);
@@ -23,24 +29,69 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log("The response to the ajax call is below");
       console.log(response);
-      $("#iDB-preview").prepend(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
-      $("#iDB-preview").append("Critic Review:");
+      $("#iDB-preview").html("Information on the book we are currently reading:<br>")
+      $("#iDB-preview").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview").append("Critic Review(s):");
       $("#iDB-preview").append("<br>");
       $("#iDB-preview").append('"');
       $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
       $("#iDB-preview").append('"');
-      $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
+      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
       var reviewLink = response.book.critic_reviews[0].review_link;
+      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(response.book.critic_reviews[1].snippet);
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+      var reviewLink = response.book.critic_reviews[1].review_link;
       $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
     })
     //this will pause the carousel when after it loads and displays the book1
-    $('.carousel').carousel('pause');
+    // $('.carousel').carousel('pause');
   }
   // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
   // displayBook1Review(Book1);
 
+  //function for displaying the 
   // Jordan
-
+  function displayBook2Review() {
+    //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book2.title + "+" + Book2.author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    console.log(queryURL);
+    console.log(Book2.title);
+    console.log(Book2.author);
+    //make the ajax call to the iDreamBooks API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("The response to the ajax call is below");
+      console.log(response);
+      $("#iDB-preview-upcoming").html("Information on the book we are reading next:<br>")
+      $("#iDB-preview-upcoming").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview-upcoming").append("Critic Review:");
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(response.book.critic_reviews[0].snippet);
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+      var reviewLink = response.book.critic_reviews[0].review_link;
+      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(response.book.critic_reviews[1].snippet);
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+      var reviewLink = response.book.critic_reviews[1].review_link;
+      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+    })
+    //this will pause the carousel when after it loads and displays the book1
+    // $('.carousel').carousel('pause');
+  }
+  // displayBook2Review();
 
 
 
@@ -50,8 +101,12 @@ $(document).ready(function () {
   var meetings = "";
   var meetupName = "";
   var bookName = "";
+  var bookName2 = "";
   var authorName = "";
+  var authorName2 = "";
   var bookNamePluses = "";
+  var bookNamePlusses2 = "";
+  var authorNamePluses = "";
   var authorNamePluses = "";
   // for use in google preview page
   var googleISBN = "";
@@ -76,6 +131,31 @@ $(document).ready(function () {
     Book1.author = authorNamePluses;
     console.log("Book1 after snip " + Book1.title + " " + Book1.author);
     displayBook1Review(Book1);
+    googleBooks();
+  };
+
+  // function to pull title name out of meetings variable and put it into Book2 object (This is repetitive, but works for now.
+  function snipFunction2(input) {
+    console.log("function input: " + input)
+    var titleBegin = input.indexOf("-") + 2;
+    console.log(titleBegin);
+    var titleEnd = input.indexOf(",");
+    console.log(titleEnd);
+    bookName2 = input.slice(titleBegin, titleEnd);
+    console.log(bookName2);
+    authorName2 = input.slice(titleEnd + 5, input.length);
+    console.log(authorName2);
+    bookNamePluses2 = plusFunction(bookName2);
+    authorNamePluses2 = plusFunction(authorName2);
+    console.log("bookNamePluses2 variable: " + bookNamePluses2 + ". AuthorNamePluses2 variable: " + authorNamePluses2 + ".");
+    Book2.title = bookNamePluses2;
+    Book2.author = authorNamePluses2;
+    console.log("Book2 after snip " + Book2.title + " " + Book2.author);
+
+    // displayBook2Review(Book2);  This function needs to be created
+    displayBook2Review(Book2);
+    googleBooks2();
+
   };
 
   // function to convert spaces to pluses within the string parameter
@@ -98,16 +178,133 @@ $(document).ready(function () {
     console.log(response);
     meetings = response;
     console.log(meetings.results[0].name);
+    console.log(meetings.results[1].name);
     meetupName = meetings.results[0].name;
-    console.log("interior Ajax meetupName value " + meetupName);
-    snipFunction(meetupName);
+    meetupName2 = meetings.results[1].name;
+    // Adding a variable to take in the date of the next meeting in unix
     time = meetings.results[0].time;
     console.log("This is the time in unix " + time);
+    // Sending the time, the date of the next meeting to waitForTime function
+    waitForTime(time, meetupName, meetupName2);
 
-    waitForTime(time);
 
   });
 
+
+  // variables
+  var googleISBN = "";
+  var googleISBN2 = "";
+  var googleVolume = {};
+  var googleVolume2 = {};
+  var googleImageURL = "";
+  var googleImageURL2 = "";
+  var googlePagination = "";
+  var googlePagination2 = "";
+
+  function googleBooks() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + Book1.title + Book1.author + "&key=" + googleBooksAPI;
+
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books Response");
+      console.log(response);
+      googleVolume = response;
+      googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      console.log(googleISBN);
+      googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL);
+      googlePagination = response.items[0].volumeInfo.pageCount;
+      var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+      $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+       console.log("Sending googlePagination to readPerDay " + googlePagination);
+       readPerDay(googlePagination);
+
+    });
+  };
+
+  function googleBooks2() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + Book2.title + Book2.author + "&key=" + googleBooksAPI;
+
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books 2 Response");
+      console.log(response);
+      googleVolume2 = response;
+      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[0].identifier;
+      console.log(googleISBN2);
+      googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL2);
+      googlePagination2 = response.items[1].volumeInfo.pageCount;
+      console.log(googlePagination2);
+
+      var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
+      $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    });
+    
+  };
+  // <!-- Jason end -->
+
+  // <!-- Jordan-->
+
+
+  // <!-- Jordan-->
+
+  // <!-- Charity -->
+  // Globalize my tDiff variable to be seen by another process
+  var tDiff = '';
+
+  function waitForTime(time, meetupName, meetupName2) {
+    console.log("waitForTime received ", time);
+    var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
+    console.log("This is converted time " + convertedTime);
+    // var firstTime = time;
+    console.log("firstTime is " + time);
+
+    var currentTime = moment();
+    // Set a variable for how long until book meeting happens 
+    tDiff = moment(time).fromNow();
+    console.log("Sending tDiff to readPerDay " + tDiff);
+    console.log("calling readPerDay with tDiff " + tDiff);
+    // Populate the current bookMtg data in html, just pop it in
+    $("#timeTilMtg").append("The next Central Jersey Sci-Fi/Fantasy Book and Movie Club meeting will be " + tDiff);
+
+    console.log("interior Ajax meetupName value " + meetupName);
+    snipFunction(meetupName);
+    snipFunction2(meetupName2);
+  }
+  
+// function to define the pages per day to read in order to be ready for the book club meeting
+  function readPerDay(googlePagination) {
+       
+    tDiffNum = tDiff.split(" ")[1];
+    
+    tDiffNum = parseInt(tDiff.split(" ")[1]);
+    googlePagination = parseInt(googlePagination);
+    
+    var pgesPerDay = (googlePagination / tDiffNum);
+    console.log("The reader should read " + pgesPerDay + " pages per day"); 
+
+    $("#pagesPerDay").append("If you haven't started reading, you need to read " + pgesPerDay + " pages per day so you are ready for our next book club meeting!");
+  }
+
+
+
+
+
+
+
+
+  // <!-- Charity -->
+
+
+  // <!-- priyesh -->
 
 
   //-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
@@ -165,30 +362,32 @@ $(".grimg, .muimg").rotate({
   }
 });
 
-// <!-- Jason -->
-
 // --------------------End---Logo Animation--------------------
 
-function waitForTime(time) {
-  console.log("waitForTime received ", time);
-  var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
-  console.log("This is converted time " + convertedTime);
-  // var firstTime = time;
-  console.log("firstTime is " + time);
-
-  var currentTime = moment();
-   // Set a variable for how long until book meeting happens 
-   var tDiff = moment(time).fromNow();
-   console.log (tDiff);
-   
-console.log('first time and time: ' + time)
-  // Populate the current bookMtg data in html, just pop it in
-  $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be "+ tDiff);
-}
 
 
 
-// <!-- Charity -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // <!-- priyesh -->
