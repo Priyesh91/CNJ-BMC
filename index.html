@@ -13,65 +13,94 @@
 </head>
 
 <body>
-
   <!-- ------------------------START of Header Section-------------------------------- -->
-  <div class="container header outline my-3">
-    <div id="logo">
-      <div class="title glow">Central Jersey Sci-Fi-Fantasy Book and Movie Club
+  <div class="container-fluid header my-3 p-0 m-0">
+    <div class="container-fluid row p-0 m-0">
+      <!-- logo div -->
+      <div class="container-fluid jordanlogo col-4 p-0 m-0">
+        <!-- NOTE TO JASON CHANGE THIS LINK in the other pages if using homepage outline -->
+        <a href="index.html" title="Go back to homepage!">
+          <img src="/assets/images/Logo-wClubName-blue-grey.png" class="img-fluid logoimg float-center" alt="Logo image of website created by Jordan Mesibov">
+        </a>
       </div>
+      <!-- master div right of logo -->
+      <div class="container-fluid col-8 p-0 m-0">
+        <!-- row for title of page -->
+        <div class="container-fluid row p-0 m-0 mb-3">
+          <div class="container-fluid glow col-12 p-0 m-0">
+            CNJ Sci-Fi/Fantasy BMC
+          </div>
+        </div>
+        <!-- row for goodreads meet up and suggest a read button -->
+        <div class="container-fluid row p-0 m-0">
+          <!-- container for goodread logo -->
+          <div class="container fluid col-3 text-center ">
+            <a href="https://www.goodreads.com/group/show/144024-central-jersey-sci-fi-fantasy-book-club" target="_blank"
+              title="Click to visit GoodReads Site for reading club!">
+              <img src="assets/images/Goodreads.png" class="img-fluid grimg float-center" alt="image of goodreads logo with link embedded to reading group page">
+            </a>
 
-      <!--START-------------------------------- Suggest a read model start by priyesh-->
-      <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal" data-target=".bd-example-modal-lg">Suggest
-        A
-        Read!</button>
-      <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="card mb-4 border-dark">
-              <h4 class="card-header text-light bg-dark text-center">
-                Suggest A Read!
-              </h4>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="Enter Name">
+          </div>
+          <!--START-------------------------------- Suggest a read model start by priyesh-->
+          <div class="container sarbtn fluid col-4 text-center">
+            <button type="button" class="btn btn-sm btn-outline-info float-center" data-toggle="modal" data-target=".bd-example-modal-lg">Suggest
+              A
+              Read!</button>
+            <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="card mb-4 border-dark">
+                    <h4 class="card-header text-light bg-dark text-center">
+                      Suggest A Read!
+                    </h4>
+                    <div class="card-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" id="name-input" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="goodreads-username">Goodreads Username</label>
+                          <input type="text" class="form-control" id="goodreads-username-input" placeholder="Enter meetup username">
+                        </div>
+                        <div class="form-group">
+                          <label for="meetup-username">Meetup Username</label>
+                          <input type="text" class="form-control" id="meetup-username-input" placeholder="Enter meetup username">
+                        </div>
+                        <div class="form-group">
+                          <label for="booksuggestion">Book Suggestion</label>
+                          <input type="text" class="form-control" id="booksuggestion-input" placeholder="Enter Book Suggestion">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </form>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="goodreads-username">Goodreads Username</label>
-                    <input type="text" class="form-control" id="goodreads-username-input" placeholder="Enter meetup username">
-                  </div>
-                  <div class="form-group">
-                    <label for="meetup-username">Meetup Username</label>
-                    <input type="text" class="form-control" id="meetup-username-input" placeholder="Enter meetup username">
-                  </div>
-                  <div class="form-group">
-                    <label for="booksuggestion">Book Suggestion</label>
-                    <input type="text" class="form-control" id="booksuggestion-input" placeholder="Enter Book Suggestion">
-                  </div>
-                  <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </form>
+                </div>
               </div>
             </div>
           </div>
+          <!--END------------------ Suggest a read model start by priyesh-->
+          <!-- container for meetup logo link -->
+          <div class="container fluid col-4 text-center">
+            <a href="https://www.meetup.com/Central-Jersey-Sci-Fi-Fantasy-Book-and-Movie-Club/" target="_blank" title="Click to visit Meetup Site for reading club!">
+              <img src="assets/images/meetup.png" class="img-fluid muimg" alt="image of meetup logo with link embedded to reading group page">
+            </a>
+          </div>
         </div>
+
+
       </div>
     </div>
-    <!--END-------------------------------- Suggest a read model start by priyesh-->
-    <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal2" data-target=".bd-example-modal-lg">Current
-      Poll
-      For
-      Next Book</button>
   </div>
-
+  </div>
 
   <!-- ---------------------------END of Header Section--------------------------------- -->
 
   <!-- ------------------------START OF CAROUSEL 2.0 Section-------------------------------- -->
   <!-- ------START MASTER CAROUSEL DIV---- -->
-  <Div class="container carouseltwo  my-3">
+  <Div class="container-fluid carouseltwo  my-3">
 
     <div id="carouselExampleIndicators" class="carousel slide innercarousel text-white" data-ride="carousel"
       data-interval="false">
@@ -82,7 +111,6 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
       </ol>
       <!-- END THIS IS BOOTSTRAP CODE TO LINK BOTTOM INDICATOR TO SLIDE NUMBER -->
 
@@ -92,9 +120,9 @@
           <!--This row will contain the two columns specified in the comment above-->
           <div class="container row">
             <!-- google books api info -->
-            <div class="container imagediv col-sm-12 col-md-3  container outline" id="google-preview-1">1</div>
+            <div class="container imagediv col-sm-12 col-md-3  container" id="google-preview-1">1</div>
             <!-- iDreamworks api info -->
-            <div class="col-sm-12 col-md-9 outline descriptiondiv" id="iDB-preview-1">1</div>
+            <div class="col-sm-12 col-md-9 descriptiondiv text-center" id="iDB-preview-1">1</div>
           </div>
         </div>
 
@@ -102,9 +130,9 @@
           <!--This row will contain the two columns specified in the comment above-->
           <div class="container row">
             <!-- google books api info -->
-            <div class="container imagediv col-sm-12 col-md-3 container outline" id="google-preview-2">2</div>
+            <div class="container imagediv col-sm-12 col-md-3 container" id="google-preview-2">2</div>
             <!-- iDreamworks api info -->
-            <div class="col-sm-12 col-md-9 outline descriptiondiv" id="iDB-preview-2">2</div>
+            <div class="col-sm-12 col-md-9 descriptiondiv text-center" id="iDB-preview-2">2</div>
           </div>
         </div>
 
@@ -112,21 +140,21 @@
           <!--This row will contain the two columns specified in the comment above-->
           <div class="container row">
             <!-- google books api info -->
-            <div class="container imagediv col-sm-12 col-md-3 container outline" id="google-preview"></div>
+            <div class="container imagediv col-sm-12 col-md-3 container " id="google-preview"></div>
             <!-- iDreamworks api info -->
-            <div class="col-sm-12 col-md-9 outline descriptiondiv" id="iDB-preview">
+            <div class="col-sm-12 col-md-9 descriptiondiv text-center" id="iDB-preview">
               <!--Add a loading img here-->
               <img class="img-fluid" src="assets/images/updated-loading-pic.png">
             </div>
           </div>
         </div>
 
-        <div class="carousel-item container innercarousel2 row" id="upcoming-book">          
+        <div class="carousel-item container innercarousel2 row" id="upcoming-book">
           <div class="container row">
             <!-- google books api info -->
-            <div class="container imagediv col-sm-12 col-md-3 container outline" id="google-preview-upcoming"></div>
+            <div class="container imagediv col-sm-12 col-md-3 container  " id="google-preview-upcoming"></div>
             <!-- iDreamworks api info -->
-            <div class="col-sm-12 col-md-9 outline descriptiondiv" id="iDB-preview-upcoming">
+            <div class="col-sm-12 col-md-9 descriptiondiv text-center" id="iDB-preview-upcoming">
               <img class="img-fluid" src="assets/images/updated-loading-pic.png">
             </div>
           </div>
@@ -153,23 +181,16 @@
 
   <!-- ---------------------START OF FOOTER-------------------------------------------- -->
 
-  <div class="container footer outline my-3">
-    <div class="container row timerdiv">
-        <div id="timeTilMtg" style="color: red"></div>
+  <div class="container-fluid footer my-3 text center footer text-center ">
+    <div class="container-fluid timerdiv" style="color: aliceblue">
+      <div id="timeTilMtg"></div>
     </div>
-    <div class="container row logos">
-      <div class="container col-sm-12 col-md-6 goodreads">
-        <a href="https://www.goodreads.com/group/show/144024-central-jersey-sci-fi-fantasy-book-club" target="_blank"
-          title="Click to visit GoodReads Site for reading club!">
-          <img src="assets/images/Goodreads.png" class="img-fluid grimg float-right" alt="image of goodreads logo with link embedded to reading group page">
-        </a>
-      </div>
-      <div class="container col-sm-12 col-md-6 meetup center">
-        <a href="https://www.meetup.com/Central-Jersey-Sci-Fi-Fantasy-Book-and-Movie-Club/" target="_blank" title="Click to visit Meetup Site for reading club!">
-          <img src="assets/images/meetup.png" class="img-fluid muimg" alt="image of meetup logo with link embedded to reading group page">
-        </a>
+    <div class="row">
+      <div class="container-fluid clubtitle" style="color: aliceblue">
+        Central New Jersey Science Fiction/Fantasy Book and Movie Club
       </div>
     </div>
+
   </div>
 
   <!-- ---------------------END OF FOOTER-------------------------------------------- -->
