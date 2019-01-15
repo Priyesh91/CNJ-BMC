@@ -89,7 +89,7 @@ $(document).ready(function () {
   var MeetupAPISignedNextMeetupKey = "https://api.meetup.com/2/events?offset=0&format=json&limited_events=False&group_urlname=Central-Jersey-Sci-Fi-Fantasy-Book-and-Movie-Club&page=200&fields=&order=time&desc=false&status=upcoming&sig_id=3331796&sig=4e946097cff58f9b643141d9dc9b3d33b2bb73ce";
 
   // magic Alex stuff (runs request though server to get past cors stuff
-  var corsURL = `https://cors-anywhere.herokuapp.com/${MeetupAPISignedNextMeetupKey}`;
+  var corsURL = `https://alex-rosencors.herokuapp.com/?url=${MeetupAPISignedNextMeetupKey}`;
 
   $.ajax({
     url: corsURL,
@@ -102,7 +102,6 @@ $(document).ready(function () {
     console.log("interior Ajax meetupName value " + meetupName);
     snipFunction(meetupName);
     time = meetings.results[0].time;
-
     console.log("This is the time in unix " + time);
 
     waitForTime(time);
@@ -180,10 +179,10 @@ function waitForTime(time) {
   
   // Set a variable for how long until book meeting happens 
   var tDiff = moment(firstTime).fromNow();
-  console.log("The difference in days is " + tDiff);
+  console.log("The meeting will be " + tDiff +" days");
 
   // Populate the current bookMtg data in html, just pop it in
-  $("#timeTilMtg").append("The next meeting will be in " + tDiff);
+  $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
 }
 
 
