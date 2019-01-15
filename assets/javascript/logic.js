@@ -238,7 +238,7 @@ $.ajax({
     googlePagination2 = response.items[1].volumeInfo.pageCount;
     console.log(googlePagination2);
     var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
-    $("#google-preview-1").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     }); 
   };
 // <!-- Jason end -->
