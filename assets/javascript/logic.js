@@ -151,8 +151,10 @@ function displayBook2Review() {
   Book2.title = bookNamePluses2;
   Book2.author = authorNamePluses2;
   console.log("Book2 after snip "+Book2.title+" "+Book2.author);
+  
   // displayBook2Review(Book2);  This function needs to be created
   displayBook2Review(Book2);
+  googleBooks2();
 
   };
 
@@ -188,9 +190,13 @@ $.ajax({
 
   // variables
     var googleISBN = "";
+    var googleISBN2 = "";
     var googleVolume = {};
+    var googleVolume2 = {};
     var googleImageURL = "";
+    var googleImageURL2 = "";
     var googlePagination = "";
+    var googlePagination2 = "";
 
   function googleBooks(){
   var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
@@ -211,9 +217,28 @@ $.ajax({
     console.log(googlePagination);
     var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
     $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
-    
+    }); 
+  };
 
-    
+  function googleBooks2(){
+  var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+  var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q="+Book2.title+Book2.author+"&key="+googleBooksAPI;
+  
+  $.ajax({
+    url: googleBooksURL,
+    method: "GET"
+    }).then(function(response) {
+      console.log("Google Books 2 Response");
+    console.log(response);
+    googleVolume2 = response;
+    googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[0].identifier;
+    console.log(googleISBN2);
+    googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
+    console.log(googleImageURL2);
+    googlePagination2 = response.items[1].volumeInfo.pageCount;
+    console.log(googlePagination2);
+    var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
+    $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     }); 
   };
 // <!-- Jason end -->
