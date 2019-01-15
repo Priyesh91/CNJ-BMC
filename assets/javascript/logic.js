@@ -9,6 +9,12 @@ var Book1 = {
 }
 console.log(Book1);
 
+var Book2 = {
+  title: "",
+  author: ""
+}
+console.log(Book2);
+
 
   function displayBook1Review() {
     //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
@@ -50,8 +56,12 @@ console.log(Book1);
   var meetings = "";
   var meetupName = "";
   var bookName = "";
+  var bookName2 = "";
   var authorName = "";
+  var authorName2 = "";
   var bookNamePluses = "";
+  var bookNamePlusses2 = "";
+  var authorNamePluses = "";
   var authorNamePluses = "";
   // for use in google preview page
   var googleISBN = "";
@@ -76,6 +86,27 @@ console.log(Book1);
   Book1.author = authorNamePluses;
   console.log("Book1 after snip "+Book1.title+" "+Book1.author);
   displayBook1Review(Book1);
+  googleBooks();
+  };
+
+    // function to pull title name out of meetings variable and put it into Book2 object (This is repetitive, but works for now.
+  function snipFunction2(input){
+  console.log("function input: "+input)
+  var titleBegin = input.indexOf("-") + 2;
+  console.log(titleBegin);
+  var titleEnd = input.indexOf(",");
+  console.log(titleEnd);
+  bookName2 = input.slice(titleBegin,titleEnd);
+  console.log(bookName2);
+  authorName2 = input.slice(titleEnd+5, input.length);
+  console.log(authorName2);
+  bookNamePluses2 = plusFunction(bookName2);
+  authorNamePluses2 = plusFunction(authorName2);
+  console.log("bookNamePluses2 variable: "+bookNamePluses2+". AuthorNamePluses2 variable: "+authorNamePluses2+".");
+  Book2.title = bookNamePluses2;
+  Book2.author = authorNamePluses2;
+  console.log("Book2 after snip "+Book2.title+" "+Book2.author);
+  // displayBook2Review(Book2);  This function needs to be created
   };
 
   // function to convert spaces to pluses within the string parameter
@@ -98,12 +129,46 @@ $.ajax({
   console.log(response);
   meetings = response;
   console.log(meetings.results[0].name);
+  console.log(meetings.results[1].name);
   meetupName = meetings.results[0].name;
+  meetupName2 = meetings.results[1].name;
+
   console.log("interior Ajax meetupName value "+meetupName);
   snipFunction(meetupName);
+  snipFunction2(meetupName2);
   }); 
 
 
+  // variables
+    var googleISBN = "";
+    var googleVolume = {};
+    var googleImageURL = "";
+    var googlePagination = "";
+
+  function googleBooks(){
+  var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+  var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q="+Book1.title+Book1.author+"&key="+googleBooksAPI;
+  
+  $.ajax({
+    url: googleBooksURL,
+    method: "GET"
+    }).then(function(response) {
+      console.log("Google Books Response");
+    console.log(response);
+    googleVolume = response;
+    googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+    console.log(googleISBN);
+    googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
+    console.log(googleImageURL);
+    googlePagination = response.items[0].volumeInfo.pageCount;
+    console.log(googlePagination);
+    var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+    $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    
+
+    
+    }); 
+  };
 // <!-- Jason end -->
 
 // <!-- Jordan-->
