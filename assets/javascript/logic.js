@@ -317,6 +317,8 @@ $(document).ready(function () {
   // variables
   var googleISBN = "";
   var googleISBN2 = "";
+  var googleViewability = "";
+  var googleViewability2 = "";
   var googleVolume = {};
   var googleVolume2 = {};
   var googleImageURL = "";
@@ -335,14 +337,28 @@ $(document).ready(function () {
       console.log("Google Books Response");
       console.log(response);
       googleVolume = response;
-      googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      googleISBN = response.items[0].volumeInfo.industryIdentifiers[1].identifier;
+      googleViewability = response.items[0].accessInfo.viewability;
       console.log(googleISBN);
+      console.log("viewability: "+googleViewability);
       googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
       console.log(googleImageURL);
       googlePagination = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination);
-      var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
-      $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      if (googleViewability==="NO_PAGES"){
+        // href without isbn if no preview is available
+        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      }
+
+      else {
+        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      };
+
     });
   };
 
@@ -357,16 +373,20 @@ $(document).ready(function () {
       console.log("Google Books 2 Response");
       console.log(response);
       googleVolume2 = response;
-      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[0].identifier;
+      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[1].identifier;
+      googleViewability2 = response.items[0].accessInfo.viewability;
       console.log(googleISBN2);
+      console.log("viewability2: "+googleViewability2);
       googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
       console.log(googleImageURL2);
       googlePagination2 = response.items[1].volumeInfo.pageCount;
       console.log(googlePagination2);
       var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
-      $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      $("#google-preview-upcoming").append(`<a href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
+
+
   // <!-- Jason end -->
 
   // <!-- Jordan-->
@@ -383,6 +403,25 @@ $(document).ready(function () {
 
 
 
+
+
+  
+  // <!-- Jordan-->
+
+
+
+
+
+
+
+
+
+
+
+
+  // <!-- Jordan-->
+
+  // <!-- Charity -->
 
 
 
