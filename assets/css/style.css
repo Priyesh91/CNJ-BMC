@@ -11,11 +11,12 @@ body {
 
 /* Jordan */
 #iDB-preview {
-  background-color: lightgreen;
-  color: darkmagenta;
+  background-color: rgb(35, 36, 35);
+  color: rgb(255, 255, 255);
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  font-size: 20px;
 }
 
 #iDB-preview-upcoming {
@@ -70,14 +71,14 @@ body {
 }
 
 .header {
-  height: 15vh;
+  height: 20vh;
 }
 
 
 /* Logos*/
 .logoimg {
-  height: 120%;
-  width: 120%;
+  height: 275%;
+  width: 100%;
 }
 
 .grimg {
@@ -171,8 +172,102 @@ body {
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
+/* Start of background edit */
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
-/* @-webkit-keyframes glow {
+.stars {
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+
+.clouds {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  -moz-animation: move-background 150s linear infinite;
+  -ms-animation: move-background 150s linear infinite;
+  -o-animation: move-background 150s linear infinite;
+  -webkit-animation: move-background 150s linear infinite;
+  animation: move-background 150s linear infinite;
+}
+
+img {
+  height: 70vh;
+  width: 70vh;
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+}
+
+/* end of background edit */
+@-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ba893, 0 0 40px #0ba893, 0 0 50px #0ba893, 0 0 60px #0ba893, 0 0 70px #0ba893;
   }
