@@ -181,6 +181,11 @@ $(document).ready(function () {
     console.log(meetings.results[1].name);
     meetupName = meetings.results[0].name;
     meetupName2 = meetings.results[1].name;
+    // Adding a variable to take in the date of the next meeting in unix
+    time = meetings.results[0].time;
+    console.log("This is the time in unix " + time);
+    // Sending the time, the date of the next meeting to waitForTime function
+    waitForTime(time);
 
     console.log("interior Ajax meetupName value " + meetupName);
     snipFunction(meetupName);
@@ -279,11 +284,8 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
+  
+  // <!-- Jordan-->
 
 
 
@@ -318,12 +320,26 @@ $(document).ready(function () {
 
 
 
+  // <!-- Jordan-->
 
+  // <!-- Charity -->
 
+  function waitForTime(time) {
+    console.log("waitForTime received ", time);
+    var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
+    console.log("This is converted time " + convertedTime);
+    // var firstTime = time;
+    console.log("firstTime is " + time);
 
+    var currentTime = moment();
+    // Set a variable for how long until book meeting happens 
+    var tDiff = moment(time).fromNow();
+    console.log(tDiff);
 
-
-
+    console.log('first time and time: ' + time)
+    // Populate the current bookMtg data in html, just pop it in
+    $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
+  }
   // <!-- Charity -->
 
 
