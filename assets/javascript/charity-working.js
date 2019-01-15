@@ -173,17 +173,17 @@ function waitForTime(time) {
   console.log("waitForTime received ", time);
   var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
   console.log("This is converted time " + convertedTime);
-  var firstTime = time;
+  // var firstTime = time;
+  console.log("firstTime is " + time);
 
-  //var currentTime = moment();
-  
-  // Set a variable for how long until book meeting happens 
-  var tDiff = moment(firstTime).fromNow();
-  var tDiffConverted = moment(tDiff).format('h:mm:ss a');  
-  console.log("The meeting will be " + tDiffConverted +" days");
-
+  var currentTime = moment();
+   // Set a variable for how long until book meeting happens 
+   var tDiff = moment(time).fromNow();
+   console.log (tDiff);
+   
+console.log('first time and time: ' + time)
   // Populate the current bookMtg data in html, just pop it in
-  $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
+  $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be "+ tDiff);
 }
 
 
