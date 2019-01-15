@@ -181,6 +181,11 @@ $(document).ready(function () {
     console.log(meetings.results[1].name);
     meetupName = meetings.results[0].name;
     meetupName2 = meetings.results[1].name;
+    // Adding a variable to take in the date of the next meeting in unix
+    time = meetings.results[0].time;
+    console.log("This is the time in unix " + time);
+    // Sending the time, the date of the next meeting to waitForTime function
+    waitForTime(time);
 
     console.log("interior Ajax meetupName value " + meetupName);
     snipFunction(meetupName);
@@ -279,11 +284,62 @@ $(document).ready(function () {
 
 
 
+  // variables
+  var googleISBN = "";
+  var googleISBN2 = "";
+  var googleVolume = {};
+  var googleVolume2 = {};
+  var googleImageURL = "";
+  var googleImageURL2 = "";
+  var googlePagination = "";
+  var googlePagination2 = "";
 
+  function googleBooks() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + Book1.title + Book1.author + "&key=" + googleBooksAPI;
 
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books Response");
+      console.log(response);
+      googleVolume = response;
+      googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      console.log(googleISBN);
+      googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL);
+      googlePagination = response.items[0].volumeInfo.pageCount;
+      console.log(googlePagination);
+      var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+      $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    });
+  };
 
+  function googleBooks2() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + Book2.title + Book2.author + "&key=" + googleBooksAPI;
 
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books 2 Response");
+      console.log(response);
+      googleVolume2 = response;
+      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[0].identifier;
+      console.log(googleISBN2);
+      googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL2);
+      googlePagination2 = response.items[1].volumeInfo.pageCount;
+      console.log(googlePagination2);
+      var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
+      $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    });
+  };
+  // <!-- Jason end -->
 
+  // <!-- Jordan-->
 
 
 
@@ -318,12 +374,26 @@ $(document).ready(function () {
 
 
 
+  // <!-- Jordan-->
 
+  // <!-- Charity -->
 
+  function waitForTime(time) {
+    console.log("waitForTime received ", time);
+    var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
+    console.log("This is converted time " + convertedTime);
+    // var firstTime = time;
+    console.log("firstTime is " + time);
 
+    var currentTime = moment();
+    // Set a variable for how long until book meeting happens 
+    var tDiff = moment(time).fromNow();
+    console.log(tDiff);
 
-
-
+    console.log('first time and time: ' + time)
+    // Populate the current bookMtg data in html, just pop it in
+    $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
+  }
   // <!-- Charity -->
 
 
