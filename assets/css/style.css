@@ -25,7 +25,7 @@ Jordan */
 
 .title {
   text-align: center;
-  font-size: 45px;
+  font-size: 5px;
   text-emphasis: bold;
 }
 
@@ -50,7 +50,7 @@ Jordan */
 
 /* Logos at footer */
 .grimg {
-  height: 200px;
+  height: 60px;
 }
 
 .muimg {
@@ -60,7 +60,7 @@ Jordan */
 
 /* -------setting carousel to set height */
 .carouseltwo {
-  background-image: url("./../images/testimage.jpg");
+  /* background-image: url("./../images/testimage.jpg"); */
   height: 60vh;
   opacity: 0.9;
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ Jordan */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .glow {
   font-family: cursive;
-  font-size: 30px;
+  font-size: 45px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
