@@ -53,14 +53,25 @@ body {
   height: 15vh;
 }
 
+.jordanlog {
+  overflow: visible;
+
+}
+
+
 /* Logos*/
+.logoimg {
+  height: 180%;
+  width: 100%;
+}
+
 .grimg {
-  height: 60px;
+  height: 40px;
 }
 
 .muimg {
-  height: 200px;
-}
+  height: 60px;
+  }
 
 
 /* -------setting carousel to set height */
