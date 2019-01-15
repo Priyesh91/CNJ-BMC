@@ -18,7 +18,7 @@ console.log(Book2);
 
   function displayBook1Review() {
     //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
-    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book1.title + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book1.title + "+" +Book1.author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
     console.log(queryURL);
     console.log(Book1.title);
     console.log(Book1.author);
@@ -29,24 +29,69 @@ console.log(Book2);
     }).then(function (response) {
       console.log("The response to the ajax call is below");
       console.log(response);
-      $("#iDB-preview").prepend(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
-      $("#iDB-preview").append("Critic Review:");
+      $("#iDB-preview").html("Information on the book we are currently reading:<br>")
+      $("#iDB-preview").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview").append("Critic Review(s):");
       $("#iDB-preview").append("<br>");
       $("#iDB-preview").append('"');
       $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
       $("#iDB-preview").append('"');
-      $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
+      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
       var reviewLink = response.book.critic_reviews[0].review_link;
+      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(response.book.critic_reviews[1].snippet);
+      $("#iDB-preview").append('"');
+      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+      var reviewLink = response.book.critic_reviews[1].review_link;
       $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
     })
     //this will pause the carousel when after it loads and displays the book1
-    $('.carousel').carousel('pause');
+    // $('.carousel').carousel('pause');
   }
   // This function call is commented out because I moved it into snipFunction below so that it could occur after Meetup api has had time to respond
   // displayBook1Review(Book1);
 
+//function for displaying the 
 // Jordan
-
+function displayBook2Review() {
+    //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + Book2.title + "+" +Book2.author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    console.log(queryURL);
+    console.log(Book2.title);
+    console.log(Book2.author);
+    //make the ajax call to the iDreamBooks API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("The response to the ajax call is below");
+      console.log(response);
+      $("#iDB-preview-upcoming").html("Information on the book we are reading next:<br>")
+      $("#iDB-preview-upcoming").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview-upcoming").append("Critic Review:");
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(response.book.critic_reviews[0].snippet);
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+      var reviewLink = response.book.critic_reviews[0].review_link;
+      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append("<br>");
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(response.book.critic_reviews[1].snippet);
+      $("#iDB-preview-upcoming").append('"');
+      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+      var reviewLink = response.book.critic_reviews[1].review_link;
+      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+    })
+    //this will pause the carousel when after it loads and displays the book1
+    // $('.carousel').carousel('pause');
+  }
+  // displayBook2Review();
 
 
 
@@ -107,6 +152,8 @@ console.log(Book2);
   Book2.author = authorNamePluses2;
   console.log("Book2 after snip "+Book2.title+" "+Book2.author);
   // displayBook2Review(Book2);  This function needs to be created
+  displayBook2Review(Book2);
+
   };
 
   // function to convert spaces to pluses within the string parameter
