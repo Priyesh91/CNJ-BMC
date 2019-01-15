@@ -13,6 +13,11 @@
 </head>
 
 <body>
+  <div class="container-fluid header outline my-3">
+
+
+
+    </div>
 
   <!-- ------------------------START of Header Section-------------------------------- -->
   <div class="container-fluid header outline my-3">
@@ -31,58 +36,59 @@
             <img src="assets/images/meetup.png" class="img-fluid muimg" alt="image of meetup logo with link embedded to reading group page">
           </a>
         </div>
-      <!--START-------------------------------- Suggest a read model start by priyesh-->
-      <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal" data-target=".bd-example-modal-lg">Suggest
-        A
-        Read!</button>
-      <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="card mb-4 border-dark">
-              <h4 class="card-header text-light bg-dark text-center">
-                Suggest A Read!
-              </h4>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name-input" placeholder="Enter Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="goodreads-username">Goodreads Username</label>
-                    <input type="text" class="form-control" id="goodreads-username-input" placeholder="Enter meetup username">
-                  </div>
-                  <div class="form-group">
-                    <label for="meetup-username">Meetup Username</label>
-                    <input type="text" class="form-control" id="meetup-username-input" placeholder="Enter meetup username">
-                  </div>
-                  <div class="form-group">
-                    <label for="booksuggestion">Book Suggestion</label>
-                    <input type="text" class="form-control" id="booksuggestion-input" placeholder="Enter Book Suggestion">
-                  </div>
-                  <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </form>
+        <!--START-------------------------------- Suggest a read model start by priyesh-->
+        <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal" data-target=".bd-example-modal-lg">Suggest
+          A
+          Read!</button>
+        <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="card mb-4 border-dark">
+                <h4 class="card-header text-light bg-dark text-center">
+                  Suggest A Read!
+                </h4>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" id="name-input" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                      <label for="goodreads-username">Goodreads Username</label>
+                      <input type="text" class="form-control" id="goodreads-username-input" placeholder="Enter meetup username">
+                    </div>
+                    <div class="form-group">
+                      <label for="meetup-username">Meetup Username</label>
+                      <input type="text" class="form-control" id="meetup-username-input" placeholder="Enter meetup username">
+                    </div>
+                    <div class="form-group">
+                      <label for="booksuggestion">Book Suggestion</label>
+                      <input type="text" class="form-control" id="booksuggestion-input" placeholder="Enter Book Suggestion">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--END-------------------------------- Suggest a read model start by priyesh-->
-    <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal2" data-target=".bd-example-modal-lg">Current
-      Poll
-      For
-      Next Book</button>
-  </div>
 
+      <!--END-------------------------------- Suggest a read model start by priyesh-->
+      <button type="button" class="btn btn-info my-1 mx-1" data-toggle="modal2" data-target=".bd-example-modal-lg">Current
+        Poll
+        For
+        Next Book</button>
+    </div>
+  </div>
 
   <!-- ---------------------------END of Header Section--------------------------------- -->
 
   <!-- ------------------------START OF CAROUSEL 2.0 Section-------------------------------- -->
   <!-- ------START MASTER CAROUSEL DIV---- -->
-  <Div class="container-fluid carouseltwo  my-3">
+  <Div class="container-fluid outline carouseltwo  my-3">
 
     <div id="carouselExampleIndicators" class="carousel slide innercarousel text-white" data-ride="carousel"
       data-interval="false">
@@ -132,7 +138,7 @@
           </div>
         </div>
 
-        <div class="carousel-item container innercarousel2 row" id="upcoming-book">          
+        <div class="carousel-item container innercarousel2 row" id="upcoming-book">
           <div class="container row">
             <!-- google books api info -->
             <div class="container imagediv col-sm-12 col-md-3 container outline" id="google-preview-upcoming"></div>
@@ -161,12 +167,12 @@
 
 
 
-
+<!-- DELETE ONCE MERGED INTO WORKING HEADER-PRIYESH -->
   <!-- ---------------------START OF FOOTER-------------------------------------------- -->
 
-  <div class="container footer outline my-3">
+  <!-- <div class="container footer outline my-3">
     <div class="container row timerdiv">
-        <div id="timeTilMtg" style="color: red"></div>
+      <div id="timeTilMtg" style="color: red"></div>
     </div>
     <div class="container row logos">
       <div class="container col-sm-12 col-md-6 goodreads">
@@ -181,7 +187,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ---------------------END OF FOOTER-------------------------------------------- -->
 

@@ -1,5 +1,6 @@
 body {
-  background-image: url(./../images/testimage2.jpg);
+  /* background-image: url(./../images/testimage2.jpg); */
+  background-color: lightblue;
 }
 
 /* Jordan */
@@ -20,7 +21,7 @@ body {
 }
 
 
-Jordan */
+/* Jordan */
 /* <!-- Charity --> */
 
 .title {
@@ -48,7 +49,11 @@ Jordan */
   border-width: 6px;
 }
 
-/* Logos at footer */
+.header {
+  height: 15vh;
+}
+
+/* Logos*/
 .grimg {
   height: 60px;
 }
@@ -117,7 +122,7 @@ Jordan */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .glow {
   font-family: cursive;
-  font-size: 45px;
+  font-size: 30px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
