@@ -24,11 +24,14 @@ $(document).ready(function () {
       console.log("The response to the ajax call is below");
       console.log(response);
       $("#iDB-preview").prepend(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      $("#iDB-preview").append("Critic Review:");
+      $("#iDB-preview").append("<br>");
+      $("#iDB-preview").append('"');
       $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
+      $("#iDB-preview").append('"');
       $("#iDB-preview").append(`<br><br>Source: ${response.book.critic_reviews[0].source}`);
       var reviewLink = response.book.critic_reviews[0].review_link;
-      $("#iDB-preview").append($("<br><a href='" + reviewLink + "'>Click here for the full review</a>"));
-      //Now I just need to figure out how to make the variable reviewLink get printed to the page as a link instead of plain text
+      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
     })
     //this will pause the carousel when after it loads and displays the book1
     $('.carousel').carousel('pause');
@@ -50,7 +53,10 @@ $(document).ready(function () {
   var authorName = "";
   var bookNamePluses = "";
   var authorNamePluses = "";
-  // var toggleA = false;
+  // for use in google preview page
+  var googleISBN = "";
+  var googleVolume = {};
+
 
   // function to pull title name out of meetings variable
   function snipFunction(input) {
@@ -83,7 +89,7 @@ $(document).ready(function () {
   var MeetupAPISignedNextMeetupKey = "https://api.meetup.com/2/events?offset=0&format=json&limited_events=False&group_urlname=Central-Jersey-Sci-Fi-Fantasy-Book-and-Movie-Club&page=200&fields=&order=time&desc=false&status=upcoming&sig_id=3331796&sig=4e946097cff58f9b643141d9dc9b3d33b2bb73ce";
 
   // magic Alex stuff (runs request though server to get past cors stuff
-  var corsURL = `https://cors-anywhere.herokuapp.com/${MeetupAPISignedNextMeetupKey}`;
+  var corsURL = `https://alex-rosencors.herokuapp.com/?url=${MeetupAPISignedNextMeetupKey}`;
 
   $.ajax({
     url: corsURL,
@@ -95,146 +101,93 @@ $(document).ready(function () {
     meetupName = meetings.results[0].name;
     console.log("interior Ajax meetupName value " + meetupName);
     snipFunction(meetupName);
+    time = meetings.results[0].time;
+    console.log("This is the time in unix " + time);
+
+    waitForTime(time);
+
   });
 
 
-  // <!-- Jason end -->
 
-  // <!-- Jordan-->
+  //-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+  $(document).ready(function () {
 
+    // Initialize Firebase
+    //priyesh firebase test project key, on final submit change to Jason's information as he will be using it periodically
+    var config = {
+      apiKey: "AIzaSyClgcbH2St3fS0SxAAivW6ts5PS8rTlMGY",
+      authDomain: "test-project1-718de.firebaseapp.com",
+      databaseURL: "https://test-project1-718de.firebaseio.com",
+      projectId: "test-project1-718de",
+      storageBucket: "test-project1-718de.appspot.com",
+      messagingSenderId: "83784774921"
+    };
+    firebase.initializeApp(config);
 
+    // save firebase database reference
+    var database = firebase.database();
+    // add event listener for form submit
+    $("#submit-btn").on("click", function (event) {
+      event.preventDefault();
 
+      var userData = {
+        name: $("#name-input").val().trim(),
+        goodreadsUsername: $("#goodreads-username-input").val().trim(),
+        meetupUsername: $("#meetup-username-input").val().trim(),
+        bookSuggestion: $("#booksuggestion-input").val().trim()
+      };
 
+      database.ref().push(userData);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // <!-- Jordan-->
-
-  // <!-- Charity -->
-  var tFrequency = bookMtgFrequency;
-
-  var firstTime = time;
-
-  var firstTimeConverted = moment(firstTime, "HH:mm");
-
-  var currentTime = moment();
-
-
-  var diffTime = parseInt(moment().diff(moment(firstTimeConverted), "minutes"));
-
-  // Set a variable for how frequently the book arrives
-  var tRemainder = parseInt(diffTime) % parseInt(tFrequency);
-
-  //Convert the time frequency into a number
-  tMinutesTillbook = parseInt(tFrequency) - parseInt(tRemainder);
-  // Set variable for getting the time to the next book meeting
-  var nextbookMtg = moment().add(tMinutesTillbookMtg, "minutes");
-  nextbookMtg = (moment(nextbookMtg).format("hh:mm A"));
-
-  // Populate the current bookMtg data in html, create table to do it
-  $("#bookMtg-Table > tbody").append("<tr data-key=" + childSnapshot.key + "><td>" + bookMtgName + "</td><td>" + bookMtgDestination + "</td><td>" +
-    bookMtgFrequency + " min" + "</td><td>" + nextbookMtg + "</td><td>" + "Arrives in : " + tMinutesTillbookMtg + " min" + "</td>" + "<td>" + "<button  data-key=" + childSnapshot.key + "  class='btn btn-secondary edit'>" + "<i class='fas fa-file-signature'></i>" + "</button>" +
-    "<button  data-key=" + childSnapshot.key + " class='btn btn-secondary delete'>" + "<i class='fas fa-undo'>" + "</i>" + "</button>" + "</td>" + "</tr>"
-  );
+      //clear out values after submit
+      $("#name-input").val("");
+      $("#goodreads-username-input").val("");
+      $("#meetup-username-input").val("");
+      $("#booksuggestion-input").val("");
+    });
+  });
+  //-------END---Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
+});
+// --------------------Start---Logo Animation--------------------
+$(".grimg, .muimg").rotate({
+  bind: {
+    mouseover: function () {
+      $(this).rotate({
+        animateTo: 360
+      })
+    },
+    mouseout: function () {
+      $(this).rotate({
+        animateTo: 0
+      })
+    }
+  }
 });
 
+// <!-- Jason -->
 
+// --------------------End---Logo Animation--------------------
 
+function waitForTime(time) {
+  console.log("waitForTime received ", time);
+  var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
+  console.log("This is converted time " + convertedTime);
+  var firstTime = time;
 
+  var currentTime = moment();
+  
+  // Set a variable for how long until book meeting happens 
+  var tDiff = moment(firstTime).fromNow();
+  console.log("The meeting will be " + tDiff +" days");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // Populate the current bookMtg data in html, just pop it in
+  $("#timeTilMtg").append("The CNJ Scifi-Fantasy Book and Movie Club next meeting will be " + tDiff);
+}
 
 
 
 // <!-- Charity -->
 
-
-// <!-- priyesh -->
-
-
-//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
-$(document).ready(function () {
-
-// Initialize Firebase
-//priyesh firebase test project key, on final submit change to Jason's information as he will be using it periodically
-var config = {
-  apiKey: "AIzaSyClgcbH2St3fS0SxAAivW6ts5PS8rTlMGY",
-  authDomain: "test-project1-718de.firebaseapp.com",
-  databaseURL: "https://test-project1-718de.firebaseio.com",
-  projectId: "test-project1-718de",
-  storageBucket: "test-project1-718de.appspot.com",
-  messagingSenderId: "83784774921"
-};
-firebase.initializeApp(config);
-
-// save firebase database reference
-var database = firebase.database();
-// add event listener for form submit
-$("#submit-btn").on("click", function (event) {
-  event.preventDefault();
-
-  var userData = {
-    name: $("#name-input").val().trim(),
-    goodreadsUsername: $("#goodreads-username-input").val().trim(),
-    meetupUsername: $("#meetup-username-input").val().trim(),
-    bookSuggestion: $("#booksuggestion-input").val().trim()
-  };
-
-  database.ref().push(userData);
-
-  //clear out values after submit
-  $("#name-input").val("");
-  $("#goodreads-username-input").val("");
-  $("#meetup-username-input").val("");
-  $("#booksuggestion-input").val("");
-});
-});
-//-------Start----Priyesh Submit A READ BUTTON AND FIREBASE CODE---------
-
-
-
-
-
-})
 
 // <!-- priyesh -->
