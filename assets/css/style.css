@@ -48,6 +48,7 @@ body {
   text-align: center;
   font-size: 5px;
   text-emphasis: bold;
+  
 }
 
 #footer {
@@ -163,7 +164,7 @@ body {
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .glow {
-  font-family: cursive;
+  font-family: 'Orbitron', sans-serif;
   font-size: 40px;
   color: #fff;
   text-align: center;
