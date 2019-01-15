@@ -2,7 +2,7 @@ body {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  background-color: lightblue;
+  background-color: black;
   /* background-image: url("./../images/testbackground.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -11,33 +11,41 @@ body {
 
 /* Jordan */
 #iDB-preview {
-  background-color: #99D3DF;
+  background-color: black;
   color: #E9E9E9;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  border-style: solid;
+  border-color: #88BBD6;
 }
 
 #iDB-preview-upcoming {
-  background-color: #99D3DF;
+  background-color: black;
   color: #E9E9E9;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  border-style: solid;
+  border-color: #88BBD6;
 }
 #iDB-preview-recent {
-  background-color: #99D3DF;
+  background-color: black;
   color: #E9E9E9;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  border-style: solid;
+  border-color: #88BBD6;
 }
 #iDB-preview-wayback {
-  background-color: #99D3DF;
+  background-color: black;
   color: #E9E9E9;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  border-style: solid;
+  border-color: #88BBD6;
 }
 
 
