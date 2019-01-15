@@ -128,6 +128,8 @@ $.ajax({
     console.log(googleImageURL);
     googlePagination = response.items[0].volumeInfo.pageCount;
     console.log(googlePagination);
+    var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+    $("#google-preview").append(coverImageTag);
 
     
     }); 
