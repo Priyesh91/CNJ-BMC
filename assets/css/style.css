@@ -25,6 +25,20 @@ body {
   padding: 10px;
   max-width: 68%;
 }
+#iDB-preview-recent {
+  background-color: lightgreen;
+  color: darkmagenta;
+  margin-top: 20px;
+  padding: 10px;
+  max-width: 68%;
+}
+#iDB-preview-wayback {
+  background-color: lightgreen;
+  color: darkmagenta;
+  margin-top: 20px;
+  padding: 10px;
+  max-width: 68%;
+}
 
 
 /* Jordan */
