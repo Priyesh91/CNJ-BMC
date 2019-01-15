@@ -2,66 +2,25 @@ body {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  background-color: lightblue;
-  /* background-image: url("./../images/testbackground.jpg"); */
+  background-color: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 /* Jordan */
-#iDB-preview {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
-
-#iDB-preview-upcoming {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
-#iDB-preview-recent {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
+#iDB-preview,
+#iDB-preview-upcoming,
+#iDB-preview-recent,
 #iDB-preview-wayback {
-  background-color: lightgreen;
-  color: darkmagenta;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
-
 
 /* Jordan */
-/* <!-- Charity --> */
-
-.title {
-  text-align: center;
-  font-size: 5px;
-  text-emphasis: bold;
-  
-}
-
-#footer {
-  border: 20%;
-  border-color: black;
-}
-
-/* Charity   */
-
-/* Jason */
-
-/* jason */
-
 
 /* priyesh */
 
@@ -73,7 +32,6 @@ body {
 .header {
   height: 15vh;
 }
-
 
 /* Logos*/
 .logoimg {
@@ -88,7 +46,6 @@ body {
 .muimg {
   height: 30px;
 }
-
 
 /* -------setting carousel to set height */
 .carouseltwo {
@@ -163,7 +120,7 @@ body {
 
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
-.glow {
+.title {
   font-family: 'Orbitron', sans-serif;
   font-size: 40px;
   color: #fff;
@@ -183,11 +140,13 @@ html {
   position: relative;
   background: -webkit-radial-gradient(center, #000046 0%, #000 60%);
 }
+
 ::after,
 ::before {
   content: " ";
   display: block;
 }
+
 ::after,
 ::before,
 .moon,
@@ -196,8 +155,9 @@ html {
 .asteroid {
   position: absolute;
 }
+
 .moon {
-  color: #ffd;
+  color: rgb(202, 198, 198);
   background: radial-gradient(circle at -30% 50%, rgba(0, 0, 0, 0) 175px, currentColor 100%);
   z-index: 999;
   border-radius: 50%;
@@ -208,6 +168,7 @@ html {
   transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 20px currentColor);
 }
+
 .sky {
   left: 0;
   top: 0;
@@ -215,6 +176,7 @@ html {
   height: 100%;
   animation: rotate 400s infinite linear;
 }
+
 .star {
   width: 3px;
   height: 3px;
@@ -222,36 +184,47 @@ html {
   border-radius: 50%;
   animation: shine 800s infinite linear;
 }
+
 .star.scale1 {
   transform: scale(1);
 }
+
 .star.scale2 {
   transform: scale(0.5);
 }
+
 .star.scale3 {
   transform: scale(1.3);
 }
+
 .star.animate1 {
   animation-duration: 0.5s;
 }
+
 .star.animate2 {
   animation-duration: 1s;
 }
+
 .star.animate3 {
   animation-duration: 1.5s;
 }
+
 .star.animate4 {
   animation-duration: 2s;
 }
+
 .star.opacity1 {
   opacity: 1;
 }
+
 .star.opacity2 {
   opacity: 0.5;
 }
+
 .star.opacity3 {
   opacity: 0.2;
 }
+
 .asteroid {
   top: -200px;
   left: -200px;
@@ -264,6 +237,7 @@ html {
   animation-duration: 7s;
   animation-delay: 2s;
 }
+
 .asteroid:before {
   width: 10px;
   height: 10px;
@@ -280,6 +254,7 @@ html {
   bottom: 0;
   right: 0;
 }
+
 .asteroid:after {
   width: 0;
   height: 0;
@@ -294,44 +269,55 @@ html {
   -o-transform: rotate(-45deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-1deg);
 }
+
 @keyframes shine {
   0% {
     box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
   }
+
   50% {
     box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.4);
   }
+
   100% {
     box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
   }
 }
+
 @-webkit-keyframes shine {
   0% {
     box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
   }
+
   50% {
     box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.4);
   }
+
   100% {
     box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
   }
 }
+
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
   }
 }
+
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
   }
 }
+
 @keyframes assteroid {
   0% {
     top: -200px;
@@ -339,17 +325,20 @@ html {
     filter: alpha(opacity=80);
     opacity: 0.8;
   }
+
   10% {
     top: 200px;
     left: 200px;
     filter: alpha(opacity=0);
     opacity: 0;
   }
+
   100% {
     filter: alpha(opacity=0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes assteroid {
   0% {
     top: -200px;
@@ -357,12 +346,14 @@ html {
     filter: alpha(opacity=80);
     opacity: 0.8;
   }
+
   10% {
     top: 200px;
     left: 200px;
     filter: alpha(opacity=0);
     opacity: 0;
   }
+
   100% {
     filter: alpha(opacity=0);
     opacity: 0;
@@ -382,19 +373,20 @@ html {
 }
 
 /* ---------------End Neon Glow from Priyesh------------------------------------ */
-@media only screen and (max-width: 640px) { */
-
-  #iDB-preview {
+@media only screen and (max-width: 640px) {
+  */ #iDB-preview {
     min-width: 100%;
   }
 
-#iDB-preview-upcoming {
-  min-width: 100%;
-}
-#iDB-preview-recent {
-  min-width: 100%;
-}
-#iDB-preview-wayback {
-  min-width: 100%;
-}
+  #iDB-preview-upcoming {
+    min-width: 100%;
+  }
+
+  #iDB-preview-recent {
+    min-width: 100%;
+  }
+
+  #iDB-preview-wayback {
+    min-width: 100%;
+  }
 }
