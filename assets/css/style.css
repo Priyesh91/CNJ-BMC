@@ -106,7 +106,8 @@ body {
 
 .footer {
   height: 8vh;
-  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -115,14 +116,14 @@ body {
 }
 
 .clubtitle {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
