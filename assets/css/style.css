@@ -1,6 +1,14 @@
 body {
-  background-image: url(./../images/testimage2.jpg);
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: lightblue;
+  /* background-image: url("./../images/testbackground.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
+
 /* Jordan */
 #iDB-preview {
   background-color: lightgreen;
@@ -9,6 +17,7 @@ body {
   padding: 10px;
   max-width: 68%;
 }
+
 #iDB-preview-upcoming {
   background-color: lightgreen;
   color: darkmagenta;
@@ -18,13 +27,12 @@ body {
 }
 
 
- Jordan */
-
+/* Jordan */
 /* <!-- Charity --> */
 
 .title {
   text-align: center;
-  font-size: 45px;
+  font-size: 5px;
   text-emphasis: bold;
 }
 
@@ -33,55 +41,9 @@ body {
   border-color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Charity   */
 
 /* Jason */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* jason */
 
@@ -91,23 +53,32 @@ body {
 .outline {
   border-style: solid;
   border-width: 6px;
-
 }
 
- /* Logos at footer */
+.header {
+  height: 15vh;
+}
+
+
+/* Logos*/
+.logoimg {
+  height: 120%;
+  width: 120%;
+}
+
 .grimg {
-  height: 200px;
+  height: 20px;
 }
 
 .muimg {
-  height: 200px;
+  height: 30px;
 }
 
 
 /* -------setting carousel to set height */
 .carouseltwo {
-  background-image: url("./../images/testimage.jpg");
-  height: 60vh;
+  /* background-image: url("./../images/testimage.jpg"); */
+  height: 70vh;
   opacity: 0.9;
   background-repeat: no-repeat;
   background-size: cover;
@@ -115,19 +86,19 @@ body {
 }
 
 .innercarousel {
-  height: 58vh;
+  height: 70vh;
   margin: auto;
   padding: 1%;
 }
 
 .innercarousel1 {
-  height: 55vh;
+  height: 70vh;
   margin: auto;
   padding: 2%;
 }
 
 .innercarousel2 {
-  height: 55vh;
+  height: 70vh;
   margin: auto;
   /* padding: 0, 0, 0, 10%; */
 }
@@ -138,12 +109,13 @@ body {
 }
 
 .descriptiondiv {
-  height: 46vh;
+  height: 60vh;
+  overflow: auto;
 }
 
 .imagediv {
   height: 30vh;
-  margin-top: 8%;
+  margin-top: 15%;
   margin-right: 0%;
 }
 
@@ -160,19 +132,25 @@ body {
   min-width: 40px;
 }
 
-
-@media only screen and (max-width: 640px) {
-
-#iDB-preview{
-  min-width: 100%;
+.footer {
+  height: 8vh;
+  font-size: 20px;
+  font-weight: bold;
 }
+
+.timerdiv {
+  height: 4vh;
+}
+
+.clubtitle {
+  font-size: 15px;
 }
 
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .glow {
   font-family: cursive;
-  font-size: 30px;
+  font-size: 40px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -180,13 +158,20 @@ body {
   animation: glow 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
+/* @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ba893, 0 0 40px #0ba893, 0 0 50px #0ba893, 0 0 60px #0ba893, 0 0 70px #0ba893;
   }
-  
+
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px  #37e7d0, 0 0 40px  #37e7d0, 0 0 50px  #37e7d0, 0 0 60px  #37e7d0, 0 0 70px  #37e7d0, 0 0 80px  #37e7d0;
+    text-shadow: 0 0 20px #fff, 0 0 30px #37e7d0, 0 0 40px #37e7d0, 0 0 50px #37e7d0, 0 0 60px #37e7d0, 0 0 70px #37e7d0, 0 0 80px #37e7d0;
   }
 }
+
 /* ---------------End Neon Glow from Priyesh------------------------------------ */
+@media only screen and (max-width: 640px) { */
+
+  #iDB-preview {
+    min-width: 100%;
+  }
+}
