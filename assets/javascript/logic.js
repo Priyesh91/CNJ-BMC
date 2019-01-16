@@ -444,23 +444,43 @@ $(document).ready(function () {
   // <!-- Jordan-->
 
   // <!-- Charity -->
+// Globalize my tDiff variable to be seen by another process
+var tDiff = '';
 
-  function waitForTime(time) {
-    console.log("waitForTime received ", time);
-    var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
-    console.log("This is converted time " + convertedTime);
-    // var firstTime = time;
-    console.log("firstTime is " + time);
+function waitForTime(time, meetupName, meetupName2) {
+  console.log("waitForTime received ", time);
+  var convertedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a');
+  console.log("This is converted time " + convertedTime);
+  // var firstTime = time;
+  console.log("firstTime is " + time);
 
-    var currentTime = moment();
-    // Set a variable for how long until book meeting happens 
-    var tDiff = moment(time).fromNow();
-    console.log(tDiff);
+  var currentTime = moment();
+  // Set a variable for how long until book meeting happens 
+  tDiff = moment(time).fromNow();
+  console.log("Sending tDiff to readPerDay " + tDiff);
+  console.log("calling readPerDay with tDiff " + tDiff);
+  // Populate the current bookMtg data in html, just pop it in
+  $("#timeTilMtg").append("The next Central Jersey Sci-Fi/Fantasy Book and Movie Club meeting will be " + tDiff);
 
-    console.log('first time and time: ' + time)
-    // Populate the current bookMtg data in html, just pop it in
-    $("#timeTilMtg").append("The next CNJ Scifi-Fantasy Book and Movie Club meeting will be " + tDiff);
-  }
+  console.log("interior Ajax meetupName value " + meetupName);
+  
+}
+
+// function to define the pages per day to read in order to be ready for the book club meeting
+function readPerDay(googlePagination) {
+       
+  tDiffNum = tDiff.split(" ")[1];
+  
+  tDiffNum = parseInt(tDiff.split(" ")[1]);
+  googlePagination = parseInt(googlePagination);
+  
+  var pgesPerDay = (googlePagination / tDiffNum);
+  console.log("The reader should read " + pgesPerDay + " pages per day"); 
+
+  $("#pagesPerDay").append("If you haven't started reading, you need to read " + pgesPerDay + " pages per day so you are ready for our next book club meeting!");
+}
+
+
   // <!-- Charity -->
 
 
