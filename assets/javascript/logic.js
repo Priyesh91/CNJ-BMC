@@ -7,12 +7,14 @@ $(document).ready(function () {
     title: "",
     author: ""
   }
+  console.log("The current book's title is below");
   console.log(Book1);
 
   var Book2 = {
     title: "",
     author: ""
   }
+  console.log("The upcoming book's title is below");
   console.log(Book2);
 
 
@@ -27,26 +29,38 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log("The response to the ajax call is below");
+      console.log("The response to the CURRENT BOOK iDreamBooks ajax call is below");
       console.log(response);
       $("#iDB-preview").html("Information on the book we are currently reading:<br>")
-      $("#iDB-preview").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
-      $("#iDB-preview").append("Critic Review(s):");
-      $("#iDB-preview").append("<br>");
-      $("#iDB-preview").append('"');
-      $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
-      $("#iDB-preview").append('"');
-      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
-      var reviewLink = response.book.critic_reviews[0].review_link;
-      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
-      $("#iDB-preview").append("<br>");
-      $("#iDB-preview").append("<br>");
-      $("#iDB-preview").append('"');
-      $("#iDB-preview").append(response.book.critic_reviews[1].snippet);
-      $("#iDB-preview").append('"');
-      $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
-      var reviewLink = response.book.critic_reviews[1].review_link;
-      $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      if (response.book.rating) {
+        $("#iDB-preview").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      }
+      else {
+        $("#iDB-preview").append("Sorry, iDreamBooks has not yet rated this book.<br><br>");
+      }
+      if (response.book.critic_reviews[0]) {
+        $("#iDB-preview").append("Critic Review(s):");
+        $("#iDB-preview").append("<br>");
+        $("#iDB-preview").append('"');
+        $("#iDB-preview").append(response.book.critic_reviews[0].snippet);
+        $("#iDB-preview").append('"');
+        $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+        var reviewLink = response.book.critic_reviews[0].review_link;
+        $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+      else {
+        $("#iDB-preview").append("Sorry, iDreamBooks does not yet have any critic reviews of this book on file");
+      }
+      if (response.book.critic_reviews[1]) {
+        $("#iDB-preview").append("<br>");
+        $("#iDB-preview").append("<br>");
+        $("#iDB-preview").append('"');
+        $("#iDB-preview").append(response.book.critic_reviews[1].snippet);
+        $("#iDB-preview").append('"');
+        $("#iDB-preview").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+        var reviewLink = response.book.critic_reviews[1].review_link;
+        $("#iDB-preview").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
     })
     //this will pause the carousel when after it loads and displays the book1
     // $('.carousel').carousel('pause');
@@ -67,33 +81,140 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET"
     }).then(function (response) {
-      console.log("The response to the ajax call is below");
+      console.log("The response to the UPCOMING iDreamBooks ajax call is below");
       console.log(response);
-      $("#iDB-preview-upcoming").html("Information on the book we are reading next:<br>")
-      $("#iDB-preview-upcoming").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
-      $("#iDB-preview-upcoming").append("Critic Review:");
-      $("#iDB-preview-upcoming").append("<br>");
-      $("#iDB-preview-upcoming").append('"');
-      $("#iDB-preview-upcoming").append(response.book.critic_reviews[0].snippet);
-      $("#iDB-preview-upcoming").append('"');
-      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
-      var reviewLink = response.book.critic_reviews[0].review_link;
-      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
-      $("#iDB-preview-upcoming").append("<br>");
-      $("#iDB-preview-upcoming").append("<br>");
-      $("#iDB-preview-upcoming").append('"');
-      $("#iDB-preview-upcoming").append(response.book.critic_reviews[1].snippet);
-      $("#iDB-preview-upcoming").append('"');
-      $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
-      var reviewLink = response.book.critic_reviews[1].review_link;
-      $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      $("#iDB-preview-upcoming").html("Information on the book we are reading next:<br>");
+      if (response.book.rating) {
+        $("#iDB-preview-upcoming").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      }
+      else {
+        $("#iDB-preview-upcoming").append("Sorry, iDreamBooks has not yet rated this book.<br><br>");
+      }
+      if (response.book.critic_reviews[0]) {
+        $("#iDB-preview-upcoming").append("Critic Review:");
+        $("#iDB-preview-upcoming").append("<br>");
+        $("#iDB-preview-upcoming").append('"');
+        $("#iDB-preview-upcoming").append(response.book.critic_reviews[0].snippet);
+        $("#iDB-preview-upcoming").append('"');
+        $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+        var reviewLink = response.book.critic_reviews[0].review_link;
+        $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+      else {
+        $("#iDB-preview-upcoming").append("Sorry, iDreamBooks does not yet have any critic reviews of this book on file");
+      }
+      if (response.book.critic_reviews[1]) {
+        $("#iDB-preview-upcoming").append("<br>");
+        $("#iDB-preview-upcoming").append("<br>");
+        $("#iDB-preview-upcoming").append('"');
+        $("#iDB-preview-upcoming").append(response.book.critic_reviews[1].snippet);
+        $("#iDB-preview-upcoming").append('"');
+        $("#iDB-preview-upcoming").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+        var reviewLink = response.book.critic_reviews[1].review_link;
+        $("#iDB-preview-upcoming").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
     })
     //this will pause the carousel when after it loads and displays the book1
     // $('.carousel').carousel('pause');
   }
   // displayBook2Review();
 
+  function displayBookRecentReview() {
+    //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + pastBooks[0].title + "+" + pastBooks[0].author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    console.log(queryURL);
+    console.log(pastBooks[0].title);
+    console.log(pastBooks[0].author);
+    //make the ajax call to the iDreamBooks API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("The response to the RECENT iDreamBooks ajax call is below");
+      console.log(response);
+      $("#iDB-preview-recent").html("Information on the last book we read:<br>")
+      if (response.book.rating) {
+        $("#iDB-preview-recent").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      }
+      else {
+        $("#iDB-preview-recent").append("Sorry, iDreamBooks has not yet rated this book.<br><br>");
+      }
+      if (response.book.critic_reviews[0]) {
+        $("#iDB-preview-recent").append("Critic Review:");
+        $("#iDB-preview-recent").append("<br>");
+        $("#iDB-preview-recent").append('"');
+        $("#iDB-preview-recent").append(response.book.critic_reviews[0].snippet);
+        $("#iDB-preview-recent").append('"');
+        $("#iDB-preview-recent").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+        var reviewLink = response.book.critic_reviews[0].review_link;
+        $("#iDB-preview-recent").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+      if (response.book.critic_reviews[1]) {
+        $("#iDB-preview-recent").append("<br>");
+        $("#iDB-preview-recent").append("<br>");
+        $("#iDB-preview-recent").append('"');
+        $("#iDB-preview-recent").append(response.book.critic_reviews[1].snippet);
+        $("#iDB-preview-recent").append('"');
+        $("#iDB-preview-recent").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+        var reviewLink = response.book.critic_reviews[1].review_link;
+        $("#iDB-preview-recent").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+    })
+    //this will pause the carousel when after it loads and displays the book1
+    // $('.carousel').carousel('pause');
+  }
+  //the following line calls this function to run, but it will actually be called by Jason's relevant snip function, so once his snip function is in the code and calls this function to run, we can comment the following line out!
+  displayBookRecentReview();
 
+  function displayBookWaybackReview() {
+    //I changed the queryURL http to https below b/c of an insecure XMLHttpRequest error
+    var queryURL = "https://idreambooks.com/api/books/reviews.json?q=" + pastBooks[1].title + "+" + pastBooks[1].author + "&key=36ecbc8d8618c9f56345cf3e322fa1355b25fc32"
+    console.log(queryURL);
+    console.log(pastBooks[1].title);
+    console.log(pastBooks[1].author);
+    //make the ajax call to the iDreamBooks API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("The response to the WAYBACK iDreamBooks ajax call is below");
+      console.log(response);
+      $("#iDB-preview-wayback").html("Information on the book we read two months ago:<br>");
+      if (response.book.rating) {
+        $("#iDB-preview-wayback").append(`iDreamBooks Rating: ${response.book.rating}%<br><br>`);
+      }
+      else {
+        $("#iDB-preview-wayback").append("Sorry, iDreamBooks has not yet rated this book.<br><br>");
+      }
+      if (response.book.critic_reviews[0]) {
+        $("#iDB-preview-wayback").append("Critic Review:");
+        $("#iDB-preview-wayback").append("<br>");
+        $("#iDB-preview-wayback").append('"');
+        $("#iDB-preview-wayback").append(response.book.critic_reviews[0].snippet);
+        $("#iDB-preview-wayback").append('"');
+        $("#iDB-preview-wayback").append(`<br>Source: ${response.book.critic_reviews[0].source}`);
+        var reviewLink = response.book.critic_reviews[0].review_link;
+        $("#iDB-preview-wayback").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+      else {
+        $("#iDB-preview-wayback").append("Sorry, iDreamBooks does not yet have any critic reviews of this book on file");
+      }
+      if (response.book.critic_reviews[1]) {
+        $("#iDB-preview-wayback").append("<br>");
+        $("#iDB-preview-wayback").append("<br>");
+        $("#iDB-preview-wayback").append('"');
+        $("#iDB-preview-wayback").append(response.book.critic_reviews[1].snippet);
+        $("#iDB-preview-wayback").append('"');
+        $("#iDB-preview-wayback").append(`<br>Source: ${response.book.critic_reviews[1].source}`);
+        var reviewLink = response.book.critic_reviews[1].review_link;
+        $("#iDB-preview-wayback").append($("<br><a target='_blank' href='" + reviewLink + "'>Click here for the full review</a>"));
+      }
+    })
+    //this will pause the carousel when after it loads and displays the book1
+    // $('.carousel').carousel('pause');
+  }
+  //the following line calls this function to run, but it will actually be called by Jason's relevant snip function, so once his snip function is in the code and calls this function to run, we can comment the following line out!
+  displayBookWaybackReview();
 
 
   // <!-- Jason -->
@@ -196,6 +317,8 @@ $(document).ready(function () {
   // variables
   var googleISBN = "";
   var googleISBN2 = "";
+  var googleViewability = "";
+  var googleViewability2 = "";
   var googleVolume = {};
   var googleVolume2 = {};
   var googleImageURL = "";
@@ -214,14 +337,28 @@ $(document).ready(function () {
       console.log("Google Books Response");
       console.log(response);
       googleVolume = response;
-      googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      googleISBN = response.items[0].volumeInfo.industryIdentifiers[1].identifier;
+      googleViewability = response.items[0].accessInfo.viewability;
       console.log(googleISBN);
+      console.log("viewability: "+googleViewability);
       googleImageURL = response.items[0].volumeInfo.imageLinks.thumbnail;
       console.log(googleImageURL);
       googlePagination = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination);
-      var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
-      $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      if (googleViewability==="NO_PAGES"){
+        // href without isbn if no preview is available
+        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      }
+
+      else {
+        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+
+      };
+
     });
   };
 
@@ -236,16 +373,20 @@ $(document).ready(function () {
       console.log("Google Books 2 Response");
       console.log(response);
       googleVolume2 = response;
-      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[0].identifier;
+      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[1].identifier;
+      googleViewability2 = response.items[0].accessInfo.viewability;
       console.log(googleISBN2);
+      console.log("viewability2: "+googleViewability2);
       googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
       console.log(googleImageURL2);
       googlePagination2 = response.items[1].volumeInfo.pageCount;
       console.log(googlePagination2);
       var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
-      $("#google-preview-upcoming").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      $("#google-preview-upcoming").append(`<a href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
+
+
   // <!-- Jason end -->
 
   // <!-- Jordan-->
@@ -262,6 +403,25 @@ $(document).ready(function () {
 
 
 
+
+
+  
+  // <!-- Jordan-->
+
+
+
+
+
+
+
+
+
+
+
+
+  // <!-- Jordan-->
+
+  // <!-- Charity -->
 
 
 
