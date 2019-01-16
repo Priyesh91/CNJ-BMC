@@ -19,6 +19,7 @@ body {
   background-color: rgb(0, 0, 0);
   color: white;
   font-size: 14px;
+  overflow: auto;
 }
 
 /* Jordan */
@@ -42,6 +43,7 @@ body {
 
 .grimg {
   height: 30px;
+  width: 150px;
 }
 
 .muimg {
