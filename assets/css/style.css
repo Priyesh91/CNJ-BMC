@@ -2,46 +2,31 @@ body {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  background-color: lightblue;
-  /* background-image: url("./../images/testbackground.jpg"); */
+  background-color: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 /* Jordan */
-#iDB-preview {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
-
-#iDB-preview-upcoming {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
-#iDB-preview-recent {
-  background-color: lightgreen;
-  color: darkmagenta;
-  margin-top: 20px;
-  padding: 10px;
-  max-width: 68%;
-}
+#iDB-preview,
+#iDB-preview-upcoming,
+#iDB-preview-recent,
 #iDB-preview-wayback {
-  background-color: lightgreen;
-  color: darkmagenta;
   margin-top: 20px;
   padding: 10px;
   max-width: 68%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 14px;
 }
-
 
 /* Jordan */
+/* Charity */
+<<<<<<< charity
+
+
+
 /* <!-- Charity --> */
 
 .title {
@@ -60,11 +45,12 @@ body {
   text-emphasis: bold;
 }
 
-/* Charity   */
 
 /* Jason */
 
 /* jason */
+
+=======
 
 
 /* priyesh */
@@ -78,21 +64,20 @@ body {
   height: 15vh;
 }
 
-
 /* Logos*/
 .logoimg {
-  height: 120%;
-  width: 120%;
+  height: 180%;
+  width: 150%;
 }
 
 .grimg {
-  height: 20px;
-}
-
-.muimg {
   height: 30px;
 }
 
+.muimg {
+  height: 45px;
+width: 100px;
+}
 
 /* -------setting carousel to set height */
 .carouseltwo {
@@ -153,7 +138,8 @@ body {
 
 .footer {
   height: 8vh;
-  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -162,21 +148,346 @@ body {
 }
 
 .clubtitle {
-  font-size: 15px;
+  font-size: 10px;
 }
 
 /* glowing title */
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
-.glow {
+.title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
+/* Start of background edit */
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
+.stars {
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
+}
+
+.clouds {
+  width: 10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  -moz-animation: move-background 150s linear infinite;
+  -ms-animation: move-background 150s linear infinite;
+  -o-animation: move-background 150s linear infinite;
+  -webkit-animation: move-background 150s linear infinite;
+  animation: move-background 150s linear infinite;
+}
+
+img {
+  height: 70vh;
+  width: 70vh;
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+}
+
+/* Start of starry background */
+body,
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: -webkit-radial-gradient(center, #000046 0%, #000 60%);
+}
+
+::after,
+::before {
+  content: " ";
+  display: block;
+}
+
+::after,
+::before,
+.moon,
+.sky,
+.star,
+.asteroid {
+  position: absolute;
+}
+
+.moon {
+  color: rgb(202, 198, 198);
+  background: radial-gradient(circle at -30% 50%, rgba(0, 0, 0, 0) 175px, currentColor 100%);
+  z-index: 999;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+.sky {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 400s infinite linear;
+}
+
+.star {
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+  animation: shine 800s infinite linear;
+}
+
+.star.scale1 {
+  transform: scale(1);
+}
+
+.star.scale2 {
+  transform: scale(0.5);
+}
+
+.star.scale3 {
+  transform: scale(1.3);
+}
+
+.star.animate1 {
+  animation-duration: 0.5s;
+}
+
+.star.animate2 {
+  animation-duration: 1s;
+}
+
+.star.animate3 {
+  animation-duration: 1.5s;
+}
+
+.star.animate4 {
+  animation-duration: 2s;
+}
+
+.star.opacity1 {
+  opacity: 1;
+}
+
+.star.opacity2 {
+  opacity: 0.5;
+}
+
+.star.opacity3 {
+  opacity: 0.2;
+}
+
+.asteroid {
+  top: -200px;
+  left: -200px;
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  animation-name: assteroid;
+  animation-timing-function: linease-inear;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+
+.asteroid:before {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0px 0px 7px 2px #fff;
+  -moz-box-shadow: 0px 0px 7px 2px #fff;
+  box-shadow: 0px 0px 7px 2px #fff;
+  bottom: 0;
+  right: 0;
+}
+
+.asteroid:after {
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-bottom: 200px solid #fff;
+  border-right: 3px solid transparent;
+  bottom: -22px;
+  right: 75px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-1deg);
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@-webkit-keyframes shine {
+  0% {
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
+  }
+
+  50% {
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes assteroid {
+  0% {
+    top: -200px;
+    left: -200px;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+  }
+
+  10% {
+    top: 200px;
+    left: 200px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes assteroid {
+  0% {
+    top: -200px;
+    left: -200px;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+  }
+
+  10% {
+    top: 200px;
+    left: 200px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+
+  100% {
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+
+
+/* End of starry background */
 /* @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ba893, 0 0 40px #0ba893, 0 0 50px #0ba893, 0 0 60px #0ba893, 0 0 70px #0ba893;
@@ -188,9 +499,20 @@ body {
 }
 
 /* ---------------End Neon Glow from Priyesh------------------------------------ */
-@media only screen and (max-width: 640px) { */
+@media only screen and (max-width: 640px) {
+  */ #iDB-preview {
+    min-width: 100%;
+  }
 
-  #iDB-preview {
+  #iDB-preview-upcoming {
+    min-width: 100%;
+  }
+
+  #iDB-preview-recent {
+    min-width: 100%;
+  }
+
+  #iDB-preview-wayback {
     min-width: 100%;
   }
 }
