@@ -359,14 +359,14 @@ $(document).ready(function () {
 
       if (googleViewability==="NO_PAGES"){
         // href without isbn if no preview is available
-        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
+        var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
         $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
 
       }
 
       else {
-        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
-        $("#google-preview").append(`<a href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+        var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
 
       };
 
@@ -392,7 +392,7 @@ $(document).ready(function () {
       console.log(googleImageURL2);
       googlePagination2 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination2);
-      var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL2}" alt="cover image">`;
       $("#google-preview-upcoming").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
@@ -416,7 +416,7 @@ $(document).ready(function () {
       console.log(googleImageURL3);
       googlePagination3 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination3);
-      var coverImageTag = `<img src="${googleImageURL3}" alt="cover image">`;
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL3}" alt="cover image">`;
       $("#google-preview-recent").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN3}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
@@ -440,7 +440,7 @@ $(document).ready(function () {
       console.log(googleImageURL4);
       googlePagination4 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination4);
-      var coverImageTag = `<img src="${googleImageURL4}" alt="cover image">`;
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL4}" alt="cover image">`;
       $("#google-preview-wayback").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN4}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
