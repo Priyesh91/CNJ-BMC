@@ -23,7 +23,14 @@ body {
 }
 
 /* Jordan */
+/* Charity */
+#pagesPerDay,
+#timeTilMtg {
+  color: red;
+  text-emphasis: bold;
+}
 
+/* Charity */
 /* priyesh */
 
 .outline {
@@ -45,20 +52,20 @@ body {
   height: 30px;
   width: 150px;
   position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 .muimg {
   height: 45px;
-width: 100px;
-position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
+  width: 100px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 /* -------setting carousel to set height */
@@ -104,15 +111,15 @@ right: 0;
   margin-top: 15%;
   margin-right: 0%;
   overflow: hidden;
-  
 
-  }
-  
-  .google-cover-images {
-    height: 100%;
-    width: 100%;
-    object-fit: scale-down;
-  }
+
+}
+
+.google-cover-images {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
 
 
 .rightcbtn {
@@ -153,39 +160,48 @@ right: 0;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
+
 /* Start of background edit */
 @keyframes move-background {
   from {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
+
   to {
     -webkit-transform: translate3d(1000px, 0px, 0px);
   }
 }
+
 @-webkit-keyframes move-background {
   from {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
+
   to {
     -webkit-transform: translate3d(1000px, 0px, 0px);
   }
 }
+
 @-moz-keyframes move-background {
   from {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
+
   to {
     -webkit-transform: translate3d(1000px, 0px, 0px);
   }
 }
+
 @-webkit-keyframes move-background {
   from {
     -webkit-transform: translate3d(0px, 0px, 0px);
   }
+
   to {
     -webkit-transform: translate3d(1000px, 0px, 0px);
   }
 }
+
 .background-container {
   position: fixed;
   top: 0;
