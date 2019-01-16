@@ -103,8 +103,15 @@ right: 0;
   height: 30vh;
   margin-top: 15%;
   margin-right: 0%;
-  object-fit: fill;
   overflow: hidden;
+  
+
+  }
+  
+  .google-cover-images {
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
   }
 
 
