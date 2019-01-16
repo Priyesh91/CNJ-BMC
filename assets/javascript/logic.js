@@ -279,6 +279,7 @@ $(document).ready(function () {
 
   };
 
+
   // function to convert spaces to pluses within the string parameter
   function plusFunction(withSpaces) {
     var withPluses = withSpaces.replace(/ /g, "+");
@@ -317,14 +318,24 @@ $(document).ready(function () {
   // variables
   var googleISBN = "";
   var googleISBN2 = "";
+  var googleISBN3 = "";
+  var googleISBN4 = "";
   var googleViewability = "";
   var googleViewability2 = "";
+  var googleViewability3 = "";
+  var googleViewability4 = "";
   var googleVolume = {};
   var googleVolume2 = {};
+  var googleVolume3 = {};
+  var googleVolume4 = {};
   var googleImageURL = "";
   var googleImageURL2 = "";
+  var googleImageURL3 = "";
+  var googleImageURL4 = "";
   var googlePagination = "";
   var googlePagination2 = "";
+  var googlePagination3 = "";
+  var googlePagination4 = "";
 
   function googleBooks() {
     var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
@@ -337,7 +348,7 @@ $(document).ready(function () {
       console.log("Google Books Response");
       console.log(response);
       googleVolume = response;
-      googleISBN = response.items[0].volumeInfo.industryIdentifiers[1].identifier;
+      googleISBN = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
       googleViewability = response.items[0].accessInfo.viewability;
       console.log(googleISBN);
       console.log("viewability: "+googleViewability);
@@ -348,14 +359,14 @@ $(document).ready(function () {
 
       if (googleViewability==="NO_PAGES"){
         // href without isbn if no preview is available
-        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
-        $("#google-preview").append(`<a href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+        var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
 
       }
 
       else {
-        var coverImageTag = `<img src="${googleImageURL}" alt="cover image">`;
-        $("#google-preview").append(`<a href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+        var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
+        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
 
       };
 
@@ -373,18 +384,69 @@ $(document).ready(function () {
       console.log("Google Books 2 Response");
       console.log(response);
       googleVolume2 = response;
-      googleISBN2 = response.items[1].volumeInfo.industryIdentifiers[1].identifier;
+      googleISBN2 = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
       googleViewability2 = response.items[0].accessInfo.viewability;
       console.log(googleISBN2);
       console.log("viewability2: "+googleViewability2);
-      googleImageURL2 = response.items[1].volumeInfo.imageLinks.thumbnail;
+      googleImageURL2 = response.items[0].volumeInfo.imageLinks.thumbnail;
       console.log(googleImageURL2);
-      googlePagination2 = response.items[1].volumeInfo.pageCount;
+      googlePagination2 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination2);
-      var coverImageTag = `<img src="${googleImageURL2}" alt="cover image">`;
-      $("#google-preview-upcoming").append(`<a href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL2}" alt="cover image">`;
+      $("#google-preview-upcoming").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
     });
   };
+
+  function googleBooks3() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + pastBooks[0].title + pastBooks[0].author + "&key=" + googleBooksAPI;
+
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books 3 Response");
+      console.log(response);
+      googleVolume3 = response;
+      googleISBN3 = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      googleViewability3 = response.items[0].accessInfo.viewability;
+      console.log(googleISBN3);
+      console.log("viewability3: "+googleViewability3);
+      googleImageURL3 = response.items[0].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL3);
+      googlePagination3 = response.items[0].volumeInfo.pageCount;
+      console.log(googlePagination3);
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL3}" alt="cover image">`;
+      $("#google-preview-recent").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN3}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    });
+  };
+
+    function googleBooks4() {
+    var googleBooksAPI = "AIzaSyCheolDq79sZudYdTX1G6FspSWLpQXDEiI";
+    var googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=" + pastBooks[1].title + pastBooks[1].author + "&key=" + googleBooksAPI;
+
+    $.ajax({
+      url: googleBooksURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log("Google Books 4 Response");
+      console.log(response);
+      googleVolume4 = response;
+      googleISBN4 = response.items[0].volumeInfo.industryIdentifiers[0].identifier;
+      googleViewability4 = response.items[0].accessInfo.viewability;
+      console.log(googleISBN4);
+      console.log("viewability4: "+googleViewability4);
+      googleImageURL4 = response.items[0].volumeInfo.imageLinks.thumbnail;
+      console.log(googleImageURL4);
+      googlePagination4 = response.items[0].volumeInfo.pageCount;
+      console.log(googlePagination4);
+      var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL4}" alt="cover image">`;
+      $("#google-preview-wayback").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN4}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+    });
+  };
+
+  googleBooks3();
+  googleBooks4();
 
 
   // <!-- Jason end -->
