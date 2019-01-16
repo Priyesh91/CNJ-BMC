@@ -18,7 +18,8 @@ body {
   max-width: 68%;
   background-color: rgb(0, 0, 0);
   color: white;
-  font-size: 14px;
+  font-size: 20px;
+  overflow: auto;
 }
 
 /* Jordan */
@@ -36,17 +37,28 @@ body {
 
 /* Logos*/
 .logoimg {
-  height: 180%;
-  width: 150%;
+  height: 28vh;
+  width: 39vh;
 }
 
 .grimg {
   height: 30px;
+  width: 150px;
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
 }
 
 .muimg {
   height: 45px;
 width: 100px;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
 }
 
 /* -------setting carousel to set height */
@@ -91,7 +103,9 @@ width: 100px;
   height: 30vh;
   margin-top: 15%;
   margin-right: 0%;
-}
+  object-fit: fill;
+  overflow: hidden;
+  }
 
 
 .rightcbtn {
@@ -125,7 +139,7 @@ width: 100px;
 /* ---------------Start Neon Glow Priyesh----------------------------------- */
 .title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 35px;
+  font-size: 50px;
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
