@@ -360,13 +360,13 @@ $(document).ready(function () {
       if (googleViewability==="NO_PAGES"){
         // href without isbn if no preview is available
         var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
-        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html">${coverImageTag}<a>`);
 
       }
 
       else {
         var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL}" alt="cover image">`;
-        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+        $("#google-preview").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN}">${coverImageTag}<a>`);
 
       };
 
@@ -393,7 +393,7 @@ $(document).ready(function () {
       googlePagination2 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination2);
       var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL2}" alt="cover image">`;
-      $("#google-preview-upcoming").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      $("#google-preview-upcoming").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN2}">${coverImageTag}<a>`);
     });
   };
 
@@ -417,7 +417,7 @@ $(document).ready(function () {
       googlePagination3 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination3);
       var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL3}" alt="cover image">`;
-      $("#google-preview-recent").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN3}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      $("#google-preview-recent").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN3}">${coverImageTag}<a>`);
     });
   };
 
@@ -441,7 +441,7 @@ $(document).ready(function () {
       googlePagination4 = response.items[0].volumeInfo.pageCount;
       console.log(googlePagination4);
       var coverImageTag = `<img class = "google-cover-images" src="${googleImageURL4}" alt="cover image">`;
-      $("#google-preview-wayback").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN4}">${coverImageTag}<a><br /><p>Click cover for<br />preview</p>`);
+      $("#google-preview-wayback").append(`<a class="google-cover-image-links" href="./preview.html?isbn=${googleISBN4}">${coverImageTag}<a>`);
     });
   };
 
