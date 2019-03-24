@@ -6,3 +6,8 @@ https://priyesh91.github.io/CNJ-BMC/.
 
 ## Git Deployed Link of Original Project
 https://jasonsmacias.github.io/Central-Jersey-Sci-Fi-Fantasy-Book-and-Movie-Club/
+
+## Screenshots
+![1] (https://user-images.githubusercontent.com/45401070/54880371-64df9000-4e1a-11e9-9371-eabc2e7926e2.PNG)
+![2] (https://user-images.githubusercontent.com/45401070/54880373-66a95380-4e1a-11e9-9811-f9a8d0facb5b.PNG)
+![3] (https://user-images.githubusercontent.com/45401070/54880375-67da8080-4e1a-11e9-870c-8ec387a39df3.PNG)
